@@ -4481,3 +4481,349 @@ video {
   }
 
 }
+
+
+/* =========================================================
+   A24 MOTION SYSTEM — /work
+   see: a24-effects-spec-elldesign-work.md
+========================================================= */
+
+/* global timing tokens (§3.0) */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --dur-reveal: 700ms;
+  --dur-zoom: 1000ms;
+  --dur-swap: 350ms;
+  --dur-nav: 300ms;
+
+  --stagger: 80ms;
+
+  --font-mono:
+    ui-monospace,
+    "SF Mono",
+    "Cascadia Mono",
+    Menlo,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+
+/* =========================================================
+   E6 — NAV HIDE / REVEAL + BLUR
+========================================================= */
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+
+  background: rgba(5, 5, 5, 0.55);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: transform var(--dur-nav) ease;
+}
+
+
+.siteHeaderHidden {
+  transform: translateY(-100%);
+}
+
+
+/* =========================================================
+   E1 (typographic) — HEADLINE LINE-MASK RISE
+========================================================= */
+
+.workTitleMask .heroLine {
+  display: block;
+
+  overflow: hidden;
+
+  /* room for descenders at line-height 0.88 */
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+
+.workTitleMask .heroLine > span {
+  display: inline-block;
+
+  transform: translateY(118%);
+
+  animation: heroLineRise 900ms var(--ease-out) forwards;
+}
+
+
+.workTitleMask .heroLine:nth-child(2) > span {
+  animation-delay: 120ms;
+}
+
+
+@keyframes heroLineRise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   E1 pager — YEAR RAIL AS LIVE SCROLL-SPY
+========================================================= */
+
+.workYears {
+  position: sticky;
+  top: 40vh;
+
+  align-self: start;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 26px;
+
+  padding-top: 8px;
+}
+
+
+.workYears button {
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  text-align: left;
+
+  color: #555;
+
+  font-family: var(--font-mono);
+  font-size: 12px;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition: color 0.4s ease;
+}
+
+
+.workYears button:hover {
+  color: #aaa;
+}
+
+
+.workYears button.workYearActive {
+  color: #fff;
+}
+
+
+/* smooth-scroll target clearance under sticky nav */
+
+.workProject {
+  scroll-margin-top: 110px;
+}
+
+
+/* =========================================================
+   E3 — SLOW ZOOM  ·  E2 — ART SWAP
+========================================================= */
+
+.workProjectImage {
+  transition:
+    transform var(--dur-zoom) var(--ease-out),
+    filter 0.5s ease;
+}
+
+
+.workProjectLink:hover .workProjectImage {
+  transform: scale(1.05);
+
+  filter: brightness(1.06);
+}
+
+
+/* alternate still — fades in over the primary */
+
+.workProjectImageAlt {
+  opacity: 0;
+
+  transition:
+    opacity var(--dur-swap) ease,
+    transform var(--dur-zoom) var(--ease-out);
+}
+
+
+.workProjectLink:hover .workProjectImageAlt {
+  opacity: 1;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   E10 — MONO UPPERCASE MICRO-LABELS
+========================================================= */
+
+.workEyebrow,
+.workProjectNumber,
+.workProjectHeading span,
+.workProjectInfo p {
+  font-family: var(--font-mono);
+}
+
+
+.workProjectInfo p {
+  text-transform: uppercase;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   E7 — CURSOR CHIP  "VIEW →"
+========================================================= */
+
+.cursorChip {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+
+  z-index: 99999999;
+
+  transform: translate3d(-100px, -100px, 0);
+
+  will-change: transform;
+}
+
+
+.cursorChipLabel {
+  display: inline-block;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.55);
+
+  opacity: 0;
+
+  background: #f2f2ef;
+  color: #050505;
+
+  padding: 11px 16px;
+
+  border-radius: 999px;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  white-space: nowrap;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s var(--ease-out);
+}
+
+
+.cursorChipActive .cursorChipLabel {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* =========================================================
+   E9 — PAGE FADE (film cut)
+========================================================= */
+
+.pageFade {
+  position: fixed;
+  inset: 0;
+
+  background: #050505;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 999990;
+
+  transition: opacity 400ms ease;
+}
+
+
+.pageFadeActive {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE — rail stays hidden
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .workYears {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY — reduced motion (§4.6)
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .siteHeader {
+    transition: none;
+  }
+
+  .siteHeaderHidden {
+    transform: none;
+  }
+
+
+  .workTitleMask .heroLine {
+    overflow: visible;
+  }
+
+  .workTitleMask .heroLine > span {
+    animation: none;
+
+    transform: none;
+  }
+
+
+  .workProjectLink:hover .workProjectImage,
+  .workProjectLink:hover .workProjectImageAlt {
+    transform: none;
+  }
+
+
+  .cursorChip {
+    display: none;
+  }
+
+
+  .pageFade {
+    transition: none;
+
+    opacity: 0 !important;
+  }
+
+}

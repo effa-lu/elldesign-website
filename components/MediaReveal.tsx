@@ -11,12 +11,16 @@ type MediaRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+
+  /* stays visible after first reveal (A24 behaviour) */
+  once?: boolean;
 };
 
 export default function MediaReveal({
   children,
   className = "",
   delay = 0,
+  once = false,
 }: MediaRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -28,7 +32,13 @@ export default function MediaReveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setVisible(true);
+
+          if (once) observer.disconnect();
+        } else if (!once) {
+          setVisible(false);
+        }
       },
       {
         threshold: 0.12,
@@ -41,7 +51,7 @@ export default function MediaReveal({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [once]);
 
   return (
     <div

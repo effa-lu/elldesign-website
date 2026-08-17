@@ -2,9 +2,46 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+
+  /*
+    A24-style nav:
+    hides on scroll-down, returns on scroll-up.
+  */
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let last = window.scrollY;
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+
+        setHidden(y > last && y > 120);
+
+        last = y;
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  /* nav always returns when the route changes */
+  useEffect(() => {
+    setHidden(false);
+  }, [pathname]);
 
   const getCenterContent = () => {
     if (pathname === "/work" || pathname.startsWith("/work/")) {
@@ -34,7 +71,14 @@ export default function Navbar() {
   const center = getCenterContent();
 
   return (
-    <header className="siteHeader">
+    <header
+      className={[
+        "siteHeader",
+        hidden ? "siteHeaderHidden" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
 
       {/* LEFT */}
       <Link href="/" className="headerBrand">

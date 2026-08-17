@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CursorDot from "@/components/CursorDot";
+import PageFade from "@/components/PageFade";
 
 export const metadata: Metadata = {
   title: "ELLDdesign Studio",
@@ -20,6 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <CursorDot />
+
+        <PageFade />
 
         <Navbar />
 
