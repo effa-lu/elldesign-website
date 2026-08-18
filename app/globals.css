@@ -6920,6 +6920,51 @@ video {
 }
 
 
+/* Within The Existing slot variants */
+
+.projectDossier .pairTall {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+
+.projectDossier .pairTall .ph {
+  aspect-ratio: 1100 / 1706;
+}
+
+
+.projectDossier .nearSq {
+  aspect-ratio: 1572 / 1439;
+
+  max-width: 86%;
+}
+
+
+.projectDossier .detailW {
+  aspect-ratio: 2000 / 1496;
+}
+
+
+.projectDossier .w32 {
+  aspect-ratio: 3 / 2;
+}
+
+
+.projectDossier .w32Sm {
+  aspect-ratio: 3 / 2;
+
+  max-width: 640px;
+}
+
+
+.projectDossier .sqSm {
+  aspect-ratio: 489 / 517;
+
+  max-width: 46%;
+}
+
+
 .projectDossier .block {
   margin: 0 0 64px;
 }
@@ -7278,6 +7323,16 @@ video {
   }
 
   .projectDossier .heroPh {
+    max-width: 100%;
+  }
+
+  .projectDossier .pairTall {
+    grid-template-columns: 1fr;
+  }
+
+  .projectDossier .nearSq,
+  .projectDossier .w32Sm,
+  .projectDossier .sqSm {
     max-width: 100%;
   }
 
