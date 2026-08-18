@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import CursorDot from "@/components/CursorDot";
 
 export const metadata: Metadata = {
-  title: "ELLDdesign Studio",
+  title: "ELLdesign Studio",
   description:
     "Independent spatial design practice — Los Angeles and Hong Kong.",
 };

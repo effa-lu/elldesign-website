@@ -24,7 +24,8 @@ const awards = [
   {
     year: "2024",
     title: "International Design Awards – Silver",
-    detail: "Architecture Project Development / Industrial & Infrastructure",
+    detail:
+      "Architecture Project Development / Industrial & Infrastructure",
   },
   {
     year: "2024",
@@ -67,26 +68,6 @@ const awards = [
     detail: "",
   },
   {
-    year: "2024",
-    title: "School of Design Dean's List Award",
-    detail: "The Hong Kong Polytechnic University",
-  },
-  {
-    year: "2024",
-    title: "HKSAR Government Scholarship Fund – Reaching Out Award",
-    detail: "",
-  },
-  {
-    year: "2024",
-    title: "HKSAR Government Scholarship Fund – Talent Development Scholarship",
-    detail: "",
-  },
-  {
-    year: "2024",
-    title: "PolyU Presidential Student Leadership Award",
-    detail: "School of Design Representative",
-  },
-  {
     year: "2023",
     title: "SHJD–4C International Design Competition – Second Award",
     detail: "First Place in Hong Kong",
@@ -98,7 +79,8 @@ const awards = [
   },
   {
     year: "2023",
-    title: "PolyU School of Design – Manual Design Technique Development Award",
+    title:
+      "PolyU School of Design – Manual Design Technique Development Award",
     detail: "",
   },
 ];
@@ -109,6 +91,11 @@ const awards = [
 ========================================================= */
 
 const exhibitions = [
+  {
+    year: "2025",
+    title: "PolyU School of Design Show",
+    detail: "Jockey Club Innovation Tower · Hong Kong",
+  },
   {
     year: "2024",
     title: "The Art of Sketching – Architectural Narratives",
@@ -123,6 +110,22 @@ const exhibitions = [
     year: "2024",
     title: "PolyU School of Design Show",
     detail: "Jockey Club Innovation Tower · Hong Kong",
+  },
+
+  {
+    year: "2024",
+    title: "The Global Research in Design Innovation Exhibition",
+    detail: "Hong Kong, China",
+  },
+  {
+    year: "2024",
+    title: "PolyU-SD-EID Exhibition of Best Studio Work",
+    detail: "Hong Kong, China",
+  },
+  {
+    year: "2023",
+    title: "SJTU-SD-4C Challenge – Award-winning Works Exhibition",
+    detail: "Shanghai, China",
   },
 ];
 
@@ -151,7 +154,7 @@ export default function StudioPage() {
 
           <Reveal delay={120}>
             <p className="studioHeroDescription">
-              ELLDdesign is an independent spatial design studio based between{" "}
+              ELLDesign is an independent spatial design studio based between{" "}
               <span className="accent nowrap">
                 Los Angeles and Hong Kong
               </span>
