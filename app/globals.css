@@ -5211,6 +5211,13 @@ video {
 }
 
 
+/* landscape variant — for paired renders / drawings */
+
+.projectCinema .pair .ph.phWide {
+  aspect-ratio: 16 / 10;
+}
+
+
 .projectCinema .full img,
 .projectCinema .ph img {
   object-fit: cover;
