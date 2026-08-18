@@ -1,4 +1,5 @@
 import Reveal from "../components/Reveal";
+import MediaReveal from "../components/MediaReveal";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       {/* =====================================================
           HERO
       ====================================================== */}
+
       <section className="homeHero">
 
         <div className="heroImage">
@@ -24,6 +26,7 @@ export default function Home() {
           </video>
         </div>
 
+
         <div className="heroContent">
 
           <Reveal>
@@ -32,7 +35,8 @@ export default function Home() {
             </h1>
           </Reveal>
 
-          <Reveal delay={100}>
+
+          <Reveal delay={110}>
             <h2 className="heroTitle">
               We build narratives
               <br />
@@ -42,9 +46,10 @@ export default function Home() {
 
         </div>
 
+
         <Reveal
           className="heroMetaReveal"
-          delay={200}
+          delay={220}
         >
           <p className="heroMeta">
             Stage · Set · World-Building
@@ -54,40 +59,58 @@ export default function Home() {
       </section>
 
 
+
       {/* =====================================================
           01 / SPACE AS MEDIUM
       ====================================================== */}
+
       <section className="spaceMedium">
 
-        <p className="sectionLabel">
-          01 / SPACE AS MEDIUM
-        </p>
+        <Reveal
+          className="sectionLabelReveal"
+          delay={120}
+        >
+          <p className="sectionLabel">
+            01 / SPACE AS MEDIUM
+          </p>
+        </Reveal>
+
 
         <div className="spaceMediumImage">
-          <img
-            src="/images/home/space-medium.png"
-            alt="Space as medium"
-          />
+
+          <MediaReveal>
+            <img
+              src="/images/home/space-medium.png"
+              alt="Space as medium"
+            />
+          </MediaReveal>
+
         </div>
 
-        <Reveal className="mediumLeftWrap">
+
+        <Reveal
+          className="mediumLeftWrap"
+          delay={180}
+        >
           <h2 className="mediumTitle">
             Not a backdrop.
           </h2>
         </Reveal>
 
+
         <Reveal
           className="mediumRightWrap"
-          delay={120}
+          delay={300}
         >
           <h2 className="mediumTitle">
             A place to enter.
           </h2>
         </Reveal>
 
+
         <Reveal
           className="mediumCaptionWrap"
-          delay={180}
+          delay={420}
         >
           <p className="mediumCaption">
             We design environments to be inhabited,
@@ -98,24 +121,42 @@ export default function Home() {
       </section>
 
 
+
       {/* =====================================================
           02 / SPATIAL NARRATIVE
       ====================================================== */}
+
       <section className="spatialNarrative">
 
-        <p className="sectionLabel">
-          02 / SPATIAL NARRATIVE
-        </p>
+        <Reveal
+          className="sectionLabelReveal"
+          delay={100}
+        >
+          <p className="sectionLabel">
+            02 / SPATIAL NARRATIVE
+          </p>
+        </Reveal>
+
 
         <div className="narrativeImage">
-          <img
-            src="/images/home/narrative-collage.png"
-            alt="Spatial narrative collage"
-            className="narrativeCollage"
-          />
+
+          <MediaReveal
+            className="narrativeMediaReveal"
+          >
+            <img
+              src="/images/home/narrative-collage.png"
+              alt="Spatial narrative collage"
+              className="narrativeCollage"
+            />
+          </MediaReveal>
+
         </div>
 
-        <Reveal className="narrativeTitleWrap">
+
+        <Reveal
+          className="narrativeTitleWrap"
+          delay={220}
+        >
           <h2 className="narrativeTitle">
             Stories
             <br />
@@ -127,9 +168,10 @@ export default function Home() {
           </h2>
         </Reveal>
 
+
         <Reveal
           className="narrativeCaptionWrap"
-          delay={150}
+          delay={380}
         >
           <p className="narrativeCaption">
             Translating narrative into spatial experience
@@ -141,23 +183,28 @@ export default function Home() {
       </section>
 
 
+
       {/* =====================================================
           THE STUDIO
       ====================================================== */}
+
       <section className="studioSection">
 
         <div className="studioGrid">
 
-          <Reveal className="studioLabelWrap">
+          <Reveal
+            className="studioLabelWrap"
+          >
             <div className="studioLabel">
               <span>THE STUDIO</span>
               <span>ELLDdesign</span>
             </div>
           </Reveal>
 
+
           <div className="studioMain">
 
-            <Reveal>
+            <Reveal delay={120}>
               <h2 className="studioTitle">
                 We use space to make
                 <br />
@@ -165,19 +212,24 @@ export default function Home() {
               </h2>
             </Reveal>
 
-            <Reveal delay={120}>
+
+            <Reveal delay={260}>
               <p className="studioDescription">
-                ELLDdesign is an interdisciplinary spatial design
-                practice working across stage, set, architecture,
-                and experimental environments. We bring together
-                design, narrative, and engineering to create spaces
-                that are not only seen, but experienced.
+                ELLDdesign is an interdisciplinary
+                spatial design practice working
+                across stage, set, architecture,
+                and experimental environments.
+                We bring together design,
+                narrative, and engineering to
+                create spaces that are not only
+                seen, but experienced.
               </p>
             </Reveal>
 
           </div>
 
         </div>
+
 
 
         <div className="capabilities">
@@ -188,9 +240,10 @@ export default function Home() {
             </p>
           </Reveal>
 
+
           <div className="capabilitiesGrid">
 
-            <Reveal>
+            <Reveal delay={100}>
               <div className="capabilityItem">
                 Stage Design
                 <br />
@@ -198,7 +251,8 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <Reveal delay={120}>
+
+            <Reveal delay={220}>
               <div className="capabilityItem">
                 Set Design
                 <br />
@@ -213,25 +267,41 @@ export default function Home() {
       </section>
 
 
+
       {/* =====================================================
           CLOSING
       ====================================================== */}
+
       <section className="homeClosing">
 
         <div className="closingImage">
-          <img
-            src="/images/home/closing-earth.jpg"
-            alt="ELLDdesign closing"
-          />
+
+          <MediaReveal
+            className="closingMediaReveal"
+          >
+            <img
+              src="/images/home/closing-earth.jpg"
+              alt="ELLDdesign closing"
+            />
+          </MediaReveal>
+
         </div>
 
-        <Reveal className="closingMetaWrap">
+
+        <Reveal
+          className="closingMetaWrap"
+          delay={150}
+        >
           <p className="closingMeta">
             NEW PROJECTS / COLLABORATIONS / CONVERSATIONS
           </p>
         </Reveal>
 
-        <Reveal className="closingTitleWrap">
+
+        <Reveal
+          className="closingTitleWrap"
+          delay={300}
+        >
           <h2 className="closingTitle">
             Let&apos;s give the story space.
           </h2>
