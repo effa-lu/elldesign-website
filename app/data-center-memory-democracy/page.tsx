@@ -494,14 +494,14 @@ export default function DataDemocracyPage() {
         </Link>
 
         <Link
-          href="/adaptive-reuse-architecture"
+          href="/culture-transit"
           data-transition
           data-cursor="view"
           data-cursor-label="VIEW →"
           style={{ textAlign: "right" }}
         >
           <span className="mono">Next Project →</span>
-          <h3>Within The Existing</h3>
+          <h3>Cultures In Transit</h3>
         </Link>
 
       </div>

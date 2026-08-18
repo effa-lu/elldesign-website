@@ -534,13 +534,13 @@ export default function WithinTheExistingPage() {
       <div className="pn">
 
         <Link
-          href="/data-center-memory-democracy"
+          href="/culture-transit"
           data-transition
           data-cursor="view"
           data-cursor-label="VIEW →"
         >
           <span className="mono">← Prev Project</span>
-          <h3>Data Democracy</h3>
+          <h3>Cultures In Transit</h3>
         </Link>
 
         <Link

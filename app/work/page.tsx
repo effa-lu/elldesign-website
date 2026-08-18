@@ -35,11 +35,11 @@ const projects = [
 
   {
     number: "02",
-    title: "Within The Existing",
-    year: "2025",
-    type: "Adaptive Reuse · Architecture",
-    href: "/adaptive-reuse-architecture",
-    image: "/images/work_navigation/within-the-existing.png",
+    title: "Cultures In Transit",
+    year: "2026",
+    type: "Stage · Spatial Design",
+    href: "/culture-transit",
+    image: "/images/culture-transit/card-strips.jpg",
     altImage: null,
     speed: 1,
     className: "workProject",
@@ -47,11 +47,11 @@ const projects = [
 
   {
     number: "03",
-    title: "Para-site Room",
+    title: "Within The Existing",
     year: "2025",
-    type: "Spatial Installation",
-    href: "/para-site-room-model",
-    image: "/images/work_navigation/Para-site Room.png",
+    type: "Adaptive Reuse · Architecture",
+    href: "/adaptive-reuse-architecture",
+    image: "/images/work_navigation/within-the-existing.png",
     altImage: null,
     speed: 1.04,
     className: "workProject",
@@ -59,6 +59,18 @@ const projects = [
 
   {
     number: "04",
+    title: "Para-site Room",
+    year: "2025",
+    type: "Spatial Installation",
+    href: "/para-site-room-model",
+    image: "/images/work_navigation/Para-site Room.png",
+    altImage: null,
+    speed: 0.97,
+    className: "workProject",
+  },
+
+  {
+    number: "05",
     title: "Lunar Frontier",
     year: "2024",
     type: "Speculative Environment · Spatial Design",
@@ -70,7 +82,7 @@ const projects = [
   },
 
   {
-    number: "05",
+    number: "06",
     title: "Memento",
     year: "2024",
     type: "Experimental Space · Spatial Experience",
@@ -82,7 +94,7 @@ const projects = [
   },
 
   {
-    number: "06",
+    number: "07",
     title: "WOW Gallery",
     year: "2024",
     type: "Interior · Spatial Experience",

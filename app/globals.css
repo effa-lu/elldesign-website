@@ -1615,7 +1615,7 @@ video {
 }
 
 
-/* create editorial offset */
+/* create editorial offset — 7 projects */
 
 .workProject:nth-child(2) {
   grid-column: span 3;
@@ -1630,17 +1630,23 @@ video {
 
 
 .workProject:nth-child(4) {
-  grid-column: 2 / span 5;
+  grid-column: 2 / span 4;
 }
 
 
 .workProject:nth-child(5) {
+  grid-column: span 5;
+  margin-top: 60px;
+}
+
+
+.workProject:nth-child(6) {
   grid-column: span 3;
   margin-top: 110px;
 }
 
 
-.workProject:nth-child(6) {
+.workProject:nth-child(7) {
   grid-column: span 4;
   margin-top: 35px;
 }
@@ -1887,7 +1893,8 @@ video {
   .workProject:nth-child(3),
   .workProject:nth-child(4),
   .workProject:nth-child(5),
-  .workProject:nth-child(6) {
+  .workProject:nth-child(6),
+  .workProject:nth-child(7) {
     grid-column: auto;
 
     margin-top: 0;
@@ -1980,7 +1987,8 @@ video {
   .workProject:nth-child(3),
   .workProject:nth-child(4),
   .workProject:nth-child(5),
-  .workProject:nth-child(6) {
+  .workProject:nth-child(6),
+  .workProject:nth-child(7) {
     grid-column: auto;
 
     margin-top: 0;
@@ -5520,6 +5528,591 @@ video {
     border-right: 0;
 
     border-bottom: 1px solid #222;
+  }
+
+}
+
+
+/* =========================================================
+   TEMPLATE D — PANORAMA · Cultures In Transit
+   cultures-in-transit-spec.md (extends .projectCinema kit)
+========================================================= */
+
+.projectPano {
+  --accent: #d94b5a;
+}
+
+
+/* G1 — selection Mode 2: project accent */
+
+.projectPano ::selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+.projectPano ::-moz-selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+
+/* =========================================================
+   P3 — HERO
+========================================================= */
+
+.projectPano .pjHero {
+  min-height: 68vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 120px 40px 8vh;
+}
+
+
+.projectPano .pjHero .mono {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: var(--accent);
+}
+
+
+.projectPano .pjHero h1 {
+  margin: 0;
+
+  font-size: clamp(52px, 8.5vw, 118px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  line-height: 1.02;
+}
+
+
+/* =========================================================
+   P2 — SECTION CHOREOGRAPHY (01–04, alternating)
+========================================================= */
+
+.projectPano .panoSection {
+  display: grid;
+
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+
+  gap: 48px;
+
+  align-items: start;
+
+  padding: 0 40px;
+
+  margin-bottom: 16vh;
+
+  min-height: 62vh;
+}
+
+
+.projectPano .panoSection.flip {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+}
+
+.projectPano .panoSection.flip .panoText {
+  order: 2;
+}
+
+
+.projectPano .panoText {
+  position: sticky;
+  top: 20vh;
+}
+
+
+.projectPano .panoNum {
+  display: block;
+
+  font-family: var(--font-mono);
+
+  font-size: clamp(58px, 6.5vw, 100px);
+
+  line-height: 1;
+
+  letter-spacing: -0.02em;
+
+  color: rgba(217, 75, 90, 0.38);
+
+  margin-bottom: 22px;
+}
+
+
+.projectPano .panoText h2 {
+  margin: 0 0 20px;
+
+  font-size: clamp(21px, 2vw, 28px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.01em;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+
+.projectPano .panoBody p {
+  margin: 0 0 14px;
+
+  max-width: 42ch;
+
+  color: #999;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* body fade-rise */
+
+.projectPano .panoBody {
+  opacity: 0;
+
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+
+  transition-delay: 0.15s;
+}
+
+
+.projectPano .panoBody.is-in {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   P1 — THE PANORAMA WINDOW
+========================================================= */
+
+.projectPano .pano {
+  position: relative;
+
+  height: clamp(240px, 36vh, 380px);
+
+  margin: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #222;
+
+  background: #0d0d0d;
+
+  cursor: grab;
+
+  touch-action: pan-y;
+
+  outline-offset: 4px;
+}
+
+
+.projectPano .pano.grabbing {
+  cursor: grabbing;
+}
+
+
+.projectPano .pano .track {
+  height: 100%;
+
+  width: max-content;
+
+  will-change: transform;
+}
+
+
+.projectPano .pano .track img {
+  height: 100%;
+
+  width: auto;
+
+  max-width: none;
+
+  display: block;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* aperture edge fades */
+
+.projectPano .pano .edge {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 26px;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.projectPano .pano .edge.left {
+  left: 0;
+
+  background: linear-gradient(90deg, #050505, transparent);
+}
+
+.projectPano .pano .edge.right {
+  right: 0;
+
+  background: linear-gradient(-90deg, #050505, transparent);
+}
+
+
+/* drag pill — follows cursor, collapses while dragging */
+
+.projectPano .pano .pill {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 3;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: #f2f2ef;
+  color: #0a0a0a;
+
+  font-family: var(--font-mono);
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transform: translate3d(-100px, -100px, 0);
+
+  transition: opacity 0.3s ease;
+
+  will-change: transform;
+}
+
+
+.projectPano .pano .pill.in {
+  opacity: 1;
+}
+
+
+.projectPano .pano .pill.drag span {
+  display: none;
+}
+
+
+@keyframes pillPulse {
+  0% { scale: 1; }
+  50% { scale: 1.06; }
+  100% { scale: 1; }
+}
+
+.projectPano .pano .pill.pulse {
+  animation: pillPulse 0.6s var(--ease-out) 1;
+}
+
+
+/* touch fallback — static hint pill */
+
+.projectPano .pano .pill.static {
+  transform: none;
+
+  top: auto;
+  left: 16px;
+  bottom: 16px;
+}
+
+
+/* progress line — the timetable made visible */
+
+.projectPano .pano .prog {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+
+  z-index: 3;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.projectPano .pano .prog i {
+  display: block;
+
+  height: 100%;
+
+  width: 0;
+
+  background: var(--accent);
+}
+
+
+/* =========================================================
+   P4 — CLOSING STATEMENT + FINALE
+========================================================= */
+
+.projectPano .panoClose {
+  padding: 22vh 40px 16vh;
+
+  text-align: center;
+}
+
+
+.projectPano .panoClose h2 {
+  margin: 0;
+
+  font-size: clamp(24px, 4vw, 52px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+
+  line-height: 1.2;
+}
+
+
+.projectPano .closeArrow {
+  display: block;
+
+  margin: 48px auto 0;
+
+  width: 26px;
+
+  height: 64px;
+
+  color: var(--accent);
+}
+
+.projectPano .closeArrow path {
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  fill: none;
+
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+
+  transition: stroke-dashoffset 1.1s var(--ease-out) 0.3s;
+}
+
+.projectPano .closeArrow.is-in path {
+  stroke-dashoffset: 0;
+}
+
+@keyframes arrowBob {
+  from { transform: translateY(0); }
+  to { transform: translateY(8px); }
+}
+
+.projectPano .closeArrow.is-in {
+  animation: arrowBob 1.4s ease-in-out 1.6s infinite alternate;
+}
+
+
+/* finale — zoom-out reveal, two-layer parallax */
+
+.projectPano .finale {
+  height: 250vh;
+
+  position: relative;
+}
+
+
+.projectPano .finaleStick {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 20px;
+}
+
+
+.projectPano .finaleScale {
+  will-change: transform, filter;
+}
+
+
+.projectPano .finaleRow {
+  position: relative;
+
+  height: 27vh;
+
+  overflow: hidden;
+}
+
+
+.projectPano .finaleRow .track {
+  height: 100%;
+
+  width: max-content;
+
+  will-change: transform;
+}
+
+
+.projectPano .finaleRow .track img {
+  height: 100%;
+
+  width: auto;
+
+  max-width: none;
+
+  display: block;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+.projectPano .finale .pano {
+  height: 27vh;
+
+  border-left: none;
+  border-right: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .projectPano .pjHero {
+    padding: 90px 18px 6vh;
+  }
+
+
+  .projectPano .panoSection,
+  .projectPano .panoSection.flip {
+    grid-template-columns: 1fr;
+
+    gap: 26px;
+
+    padding: 0 18px;
+
+    min-height: 0;
+
+    margin-bottom: 11vh;
+  }
+
+  .projectPano .panoSection.flip .panoText {
+    order: 0;
+  }
+
+
+  .projectPano .panoText {
+    position: static;
+  }
+
+
+  .projectPano .pano {
+    height: clamp(200px, 52vw, 300px);
+  }
+
+
+  .projectPano .panoClose {
+    padding: 16vh 18px 12vh;
+  }
+
+
+  .projectPano .finaleRow,
+  .projectPano .finale .pano {
+    height: 21vh;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION — native horizontal scroll fallback
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projectPano .pano,
+  .projectPano .finaleRow {
+    overflow-x: auto;
+  }
+
+  .projectPano .pano .track,
+  .projectPano .finaleRow .track {
+    transform: none !important;
+  }
+
+  .projectPano .pano .pill,
+  .projectPano .pano .prog {
+    display: none;
+  }
+
+  .projectPano .panoBody {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectPano .finaleScale {
+    transform: none !important;
+
+    filter: none !important;
+  }
+
+  .projectPano .closeArrow {
+    animation: none;
+  }
+
+  .projectPano .closeArrow path {
+    stroke-dashoffset: 0;
+
+    transition: none;
   }
 
 }
