@@ -4826,7 +4826,10 @@ video {
   background: #050505;
   color: #f2f2ef;
 
-  overflow: hidden;
+  /* clip, not hidden — the sticky chapter pins need the
+     viewport as their scroll container; overflow:hidden
+     would make main the scroller and unpin them */
+  overflow-x: clip;
 }
 
 
@@ -5597,6 +5600,988 @@ video {
     transform: none;
 
     transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   PROJECT TEMPLATE KIT — C · SEQUENCE
+   project-page-template-spec.md · template-c-sequence.html
+   First use: Para-site Room
+========================================================= */
+
+.projectSequence {
+  --accent: #b9b2a6;
+
+  background: #050505;
+  color: #f2f2ef;
+
+  /* clip, not hidden — the horizontal strip relies on
+     position:sticky, which an overflow:hidden ancestor
+     (a scroll container) would disable */
+  overflow-x: clip;
+}
+
+
+/* G1 — selection Mode 2: project accent */
+
+.projectSequence ::selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+.projectSequence ::-moz-selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+
+/* mono micro-label */
+
+.projectSequence .mono {
+  font-family: var(--font-mono);
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: #888;
+}
+
+
+/* =========================================================
+   HERO — typographic, no image
+========================================================= */
+
+.projectSequence .hero {
+  min-height: calc(100vh - 76px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 40px;
+
+  position: relative;
+}
+
+
+.projectSequence .heroRule {
+  height: 1px;
+  width: 0;
+
+  background: var(--accent);
+
+  opacity: 0.6;
+
+  margin-bottom: 34px;
+
+  transition: width 1200ms var(--ease-out) 0.45s;
+}
+
+
+.projectSequence.entered .heroRule {
+  width: 180px;
+}
+
+
+.projectSequence .heroKicker {
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.7s var(--ease-out) 0.25s,
+    transform 0.7s var(--ease-out) 0.25s;
+}
+
+
+.projectSequence.entered .heroKicker {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+.projectSequence .hero h1 {
+  margin: 20px 0 0;
+
+  font-size: clamp(52px, 10vw, 130px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  line-height: 0.98;
+}
+
+
+.projectSequence .heroTag {
+  margin-top: 30px;
+
+  color: var(--accent);
+
+  opacity: 0;
+
+  transition: opacity 0.8s var(--ease-out) 0.9s;
+}
+
+
+.projectSequence.entered .heroTag {
+  opacity: 1;
+}
+
+
+.projectSequence .cue {
+  position: absolute;
+  left: 40px;
+  bottom: 48px;
+
+  opacity: 0;
+
+  transition: opacity 0.8s ease 1.4s;
+}
+
+
+.projectSequence.entered .cue {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   G3 — LINE-MASK TEXT REVEAL
+========================================================= */
+
+.projectSequence .lines .l {
+  display: block;
+
+  overflow: hidden;
+
+  /* descender room */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+
+.projectSequence .lines .l i {
+  display: inline-block;
+
+  font-style: normal;
+
+  transform: translateY(118%);
+
+  transition: transform 900ms var(--ease-out);
+}
+
+
+.projectSequence .lines.is-in .l:nth-child(1) i {
+  transform: none;
+
+  transition-delay: 0.05s;
+}
+
+
+.projectSequence .lines.is-in .l:nth-child(2) i {
+  transform: none;
+
+  transition-delay: 0.17s;
+}
+
+
+.projectSequence .lines.is-in .l:nth-child(3) i {
+  transform: none;
+
+  transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   G4 — META STRIP
+========================================================= */
+
+.projectSequence .meta {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+
+  padding: 28px 40px;
+
+  position: relative;
+}
+
+
+.projectSequence .meta::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background: #222;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 800ms var(--ease-out);
+}
+
+
+.projectSequence .meta.is-in::before {
+  transform: scaleX(1);
+}
+
+
+.projectSequence .meta > div {
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+
+.projectSequence .meta.is-in > div {
+  opacity: 1;
+
+  transform: none;
+}
+
+.projectSequence .meta.is-in > div:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.projectSequence .meta.is-in > div:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.projectSequence .meta.is-in > div:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+
+.projectSequence .meta b {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+
+  color: #f2f2ef;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   G2 — WORD-FILL INTRO
+========================================================= */
+
+.projectSequence .intro {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  padding: 18vh 40px 20vh;
+}
+
+
+.projectSequence .wordfill {
+  margin: 0;
+
+  font-size: clamp(19px, 2.4vw, 28px);
+
+  line-height: 1.55;
+
+  font-weight: 500;
+
+  letter-spacing: 0.005em;
+}
+
+
+.projectSequence .wordfill + .wordfill {
+  margin-top: 1.6em;
+}
+
+
+.projectSequence .wordfill .w {
+  color: rgba(255, 255, 255, 0.14);
+
+  transition: color 0.3s linear;
+}
+
+
+.projectSequence .wordfill .w.on {
+  color: #fff;
+}
+
+
+/* =========================================================
+   COVER — one full-bleed moment
+========================================================= */
+
+.projectSequence .cover {
+  padding-bottom: 16vh;
+}
+
+
+.projectSequence .cover .art {
+  position: relative;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectSequence .cover .cap {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+
+/* =========================================================
+   CHAPTER STATEMENTS — big number watermark
+========================================================= */
+
+.projectSequence .statement {
+  min-height: 88vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 40px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.projectSequence .bignum {
+  position: absolute;
+  right: -2vw;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 38vh;
+  font-weight: 700;
+
+  color: #141414;
+
+  line-height: 1;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.projectSequence .statement .mono {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: var(--accent);
+}
+
+
+.projectSequence .statement h2 {
+  margin: 0;
+
+  font-size: clamp(30px, 5.4vw, 68px);
+
+  font-weight: 500;
+
+  line-height: 1.12;
+
+  position: relative;
+  z-index: 2;
+
+  max-width: 900px;
+}
+
+
+/* =========================================================
+   MEDIA ROWS
+========================================================= */
+
+.projectSequence .mediarow {
+  padding: 0 40px 14vh;
+}
+
+
+.projectSequence .mediarow .collage {
+  position: relative;
+
+  aspect-ratio: 10 / 7;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectSequence .duo {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+
+.projectSequence .duo .ph {
+  position: relative;
+
+  aspect-ratio: 10 / 7;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectSequence .cover .art img,
+.projectSequence .mediarow img,
+.projectSequence .frame .art img {
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   G5 — IMAGE REVEAL (clip wipe + settle)
+========================================================= */
+
+.projectSequence .imgreveal {
+  clip-path: inset(100% 0 0 0);
+
+  transform: scale(1.06);
+
+  transition:
+    clip-path 1100ms var(--ease-out),
+    transform 1400ms var(--ease-out);
+}
+
+
+.projectSequence .imgreveal.is-in {
+  clip-path: inset(0 0 0 0);
+
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   G6 — CAPTION + READ MORE
+========================================================= */
+
+.projectSequence .cap {
+  margin-top: 14px;
+
+  max-width: 520px;
+}
+
+
+.projectSequence .cap p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #888;
+
+  line-height: 1.6;
+}
+
+
+.projectSequence .cap .more {
+  margin-top: 8px;
+
+  display: inline-block;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+
+  padding: 0 0 2px;
+
+  color: #888;
+
+  border-bottom: 1px solid #222;
+
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+
+.projectSequence .cap .more:hover {
+  border-color: var(--accent);
+
+  color: #ccc;
+}
+
+
+.projectSequence .cap .extra {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.5s var(--ease-out);
+}
+
+
+.projectSequence .cap .extra.open {
+  max-height: 220px;
+}
+
+
+.projectSequence .cap .extra p {
+  padding-top: 10px;
+
+  color: #aaa;
+}
+
+
+/* =========================================================
+   HORIZONTAL STRIP — scroll runs the machine
+========================================================= */
+
+.projectSequence .hstrip {
+  height: 320vh;
+
+  position: relative;
+}
+
+
+.projectSequence .hstrip .viewport {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.projectSequence .hstrip .label {
+  padding: 0 40px 26px;
+}
+
+
+.projectSequence .hstrip .track {
+  display: flex;
+
+  gap: 24px;
+
+  padding: 0 40px;
+
+  will-change: transform;
+}
+
+
+.projectSequence .frame {
+  flex: 0 0 46vw;
+
+  margin: 0;
+}
+
+
+.projectSequence .frame .art {
+  position: relative;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectSequence .frame figcaption {
+  margin-top: 12px;
+}
+
+
+.projectSequence .frame figcaption b {
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
+
+.projectSequence .hstrip .prog {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background: #222;
+}
+
+
+.projectSequence .hstrip .prog i {
+  display: block;
+
+  height: 100%;
+  width: 0;
+
+  background: var(--accent);
+}
+
+
+/* =========================================================
+   OUTRO — closing statement
+========================================================= */
+
+.projectSequence .outro {
+  padding: 26vh 40px;
+
+  text-align: center;
+}
+
+
+.projectSequence .outro h2 {
+  margin: 0;
+
+  font-size: clamp(24px, 3.6vw, 48px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   CREDITS + RECOGNITION
+========================================================= */
+
+.projectSequence .credits {
+  padding: 14vh 40px;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px 60px;
+
+  border-top: 1px solid #222;
+}
+
+
+.projectSequence .credits .row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: baseline;
+
+  gap: 18px;
+
+  border-bottom: 1px solid #222;
+
+  padding: 12px 0;
+}
+
+
+.projectSequence .credits .row em {
+  font-style: normal;
+
+  color: #f2f2ef;
+
+  font-size: 12px;
+
+  text-align: right;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   G7 — PREV / NEXT
+========================================================= */
+
+.projectSequence .pn {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  border-top: 1px solid #222;
+}
+
+
+.projectSequence .pn a {
+  padding: 64px 40px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: background 0.4s ease;
+}
+
+
+.projectSequence .pn a:hover {
+  background: #121212;
+}
+
+
+.projectSequence .pn a h3 {
+  margin: 14px 0 0;
+
+  font-size: clamp(22px, 3vw, 36px);
+
+  font-weight: 500;
+
+  position: relative;
+
+  display: inline-block;
+}
+
+
+.projectSequence .pn a h3::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  height: 1px;
+  width: 0;
+
+  background: var(--accent);
+
+  transition: width 0.5s var(--ease-out);
+}
+
+
+.projectSequence .pn a:hover h3::after {
+  width: 100%;
+}
+
+
+.projectSequence .pn a:first-child {
+  border-right: 1px solid #222;
+}
+
+
+/* =========================================================
+   RESPONSIVE — Template C
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .projectSequence .hero,
+  .projectSequence .statement,
+  .projectSequence .outro {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .projectSequence .cue {
+    left: 18px;
+  }
+
+  .projectSequence .meta {
+    grid-template-columns: 1fr 1fr;
+
+    padding: 24px 18px;
+  }
+
+  .projectSequence .meta::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .projectSequence .intro {
+    padding: 14vh 18px 16vh;
+  }
+
+  .projectSequence .cover .cap {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .projectSequence .mediarow {
+    padding: 0 18px 12vh;
+  }
+
+  .projectSequence .duo {
+    grid-template-columns: 1fr;
+  }
+
+  .projectSequence .statement {
+    min-height: 72vh;
+  }
+
+  .projectSequence .bignum {
+    font-size: 22vh;
+    right: -6vw;
+  }
+
+  .projectSequence .hstrip {
+    height: auto;
+
+    padding-bottom: 6vh;
+  }
+
+  .projectSequence .hstrip .viewport {
+    position: static;
+
+    height: auto;
+  }
+
+  .projectSequence .hstrip .label {
+    padding: 0 18px 20px;
+  }
+
+  .projectSequence .hstrip .track {
+    flex-direction: column;
+
+    transform: none !important;
+
+    padding: 0 18px;
+
+    gap: 40px;
+  }
+
+  .projectSequence .frame {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .projectSequence .hstrip .prog {
+    display: none;
+  }
+
+  .projectSequence .credits {
+    grid-template-columns: 1fr;
+
+    padding: 10vh 18px;
+  }
+
+  .projectSequence .pn {
+    grid-template-columns: 1fr;
+  }
+
+  .projectSequence .pn a {
+    padding: 44px 18px;
+  }
+
+  .projectSequence .pn a:first-child {
+    border-right: 0;
+
+    border-bottom: 1px solid #222;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY — Template C reduced motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projectSequence .heroRule {
+    transition: none;
+
+    width: 180px;
+  }
+
+  .projectSequence .heroKicker,
+  .projectSequence .heroTag,
+  .projectSequence .cue {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectSequence .lines .l i {
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectSequence .imgreveal {
+    clip-path: none;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectSequence .wordfill .w {
+    color: #fff;
+
+    transition: none;
+  }
+
+  .projectSequence .meta > div {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectSequence .meta::before {
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectSequence .hstrip {
+    height: auto;
+  }
+
+  .projectSequence .hstrip .viewport {
+    position: static;
+
+    height: auto;
+  }
+
+  .projectSequence .hstrip .track {
+    flex-direction: column;
+
+    transform: none !important;
+  }
+
+  .projectSequence .frame {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .projectSequence .hstrip .prog {
+    display: none;
   }
 
 }
