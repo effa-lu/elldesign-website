@@ -21,3 +21,6 @@ yarn-error.log*
 # system files
 .DS_Store
 Thumbs.db
+
+# typescript build info
+tsconfig.tsbuildinfo

@@ -4630,7 +4630,7 @@ video {
 
 
 /* =========================================================
-   E3 — SLOW ZOOM  ·  E2 — ART SWAP
+   E3 — SLOW ZOOM  ·  RACK FOCUS  ·  E2 — ART SWAP
 ========================================================= */
 
 .workProjectImage {
@@ -4640,10 +4640,39 @@ video {
 }
 
 
+/*
+  rack focus — verified against a24films.com app.css:
+  defocus is fast (their filter 0.1s ease-out to
+  blur(28px) saturate(110%)), refocus is long with
+  EASE-IN (their filter 0.6s ease-in) — the haze
+  lingers and sharpness lands late. Same 1:6 ratio
+  here. Plays once per hover-enter; forwards holds
+  the final grade until the pointer leaves.
+*/
+
 .workProjectLink:hover .workProjectImage {
   transform: scale(1.05);
 
-  filter: brightness(1.06);
+  animation: rackFocus 1100ms forwards;
+}
+
+
+@keyframes rackFocus {
+  0% {
+    filter: blur(0px) saturate(1) brightness(1);
+
+    animation-timing-function: ease-out;
+  }
+
+  14% {
+    filter: blur(14px) saturate(1.1) brightness(1.02);
+
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    filter: blur(0px) saturate(1) brightness(1.06);
+  }
 }
 
 
@@ -4662,6 +4691,8 @@ video {
   opacity: 1;
 
   transform: scale(1.05);
+
+  animation: rackFocus 1100ms forwards;
 }
 
 
@@ -4784,6 +4815,707 @@ video {
 
 
 /* =========================================================
+   PROJECT TEMPLATE KIT — A · CINEMA
+   project-page-template-spec.md · template-a-cinema.html
+   First use: Data Democracy
+========================================================= */
+
+.projectCinema {
+  --accent: #cfcfcf;
+
+  background: #050505;
+  color: #f2f2ef;
+
+  overflow: hidden;
+}
+
+
+/* G1 — selection Mode 1: inverse (never browser blue) */
+
+.projectCinema ::selection {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.projectCinema ::-moz-selection {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+
+/* mono micro-label */
+
+.projectCinema .mono {
+  font-family: var(--font-mono);
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: #888;
+}
+
+
+/* =========================================================
+   HERO — full-bleed, title bottom-left
+========================================================= */
+
+.projectCinema .hero {
+  height: calc(100vh - 76px);
+  min-height: 540px;
+
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+
+  overflow: hidden;
+}
+
+
+.projectCinema .heroArt {
+  position: absolute;
+  inset: 0;
+}
+
+
+.projectCinema .heroArt img {
+  object-fit: cover;
+}
+
+
+/* legibility grade over the photo */
+
+.projectCinema .heroArt::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 0.74),
+    rgba(5, 5, 5, 0) 44%
+  );
+}
+
+
+.projectCinema .heroTitle {
+  position: relative;
+  z-index: 2;
+
+  padding: 0 40px 64px;
+}
+
+
+.projectCinema .heroTitle .mono {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #c9c9c4;
+}
+
+
+.projectCinema .heroTitle h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 9vw, 110px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  line-height: 1.0;
+}
+
+
+.projectCinema .cue {
+  position: absolute;
+  right: 40px;
+  bottom: 64px;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   G3 — LINE-MASK TEXT REVEAL
+========================================================= */
+
+.projectCinema .lines .l {
+  display: block;
+
+  overflow: hidden;
+
+  /* descender room */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+
+.projectCinema .lines .l i {
+  display: inline-block;
+
+  font-style: normal;
+
+  transform: translateY(118%);
+
+  transition: transform 900ms var(--ease-out);
+}
+
+
+.projectCinema .lines.is-in .l:nth-child(1) i {
+  transform: none;
+
+  transition-delay: 0.05s;
+}
+
+
+.projectCinema .lines.is-in .l:nth-child(2) i {
+  transform: none;
+
+  transition-delay: 0.17s;
+}
+
+
+.projectCinema .lines.is-in .l:nth-child(3) i {
+  transform: none;
+
+  transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   G4 — META STRIP
+========================================================= */
+
+.projectCinema .meta {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+
+  padding: 28px 40px;
+
+  position: relative;
+}
+
+
+.projectCinema .meta::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background: #222;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 800ms var(--ease-out);
+}
+
+
+.projectCinema .meta.is-in::before {
+  transform: scaleX(1);
+}
+
+
+.projectCinema .meta > div {
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+
+.projectCinema .meta.is-in > div {
+  opacity: 1;
+
+  transform: none;
+}
+
+.projectCinema .meta.is-in > div:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.projectCinema .meta.is-in > div:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.projectCinema .meta.is-in > div:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+
+.projectCinema .meta b {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+
+  color: #f2f2ef;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   G2 — WORD-FILL INTRO
+========================================================= */
+
+.projectCinema .intro {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  padding: 22vh 40px;
+}
+
+
+.projectCinema .wordfill {
+  margin: 0;
+
+  font-size: clamp(20px, 2.6vw, 30px);
+
+  line-height: 1.5;
+
+  font-weight: 500;
+
+  letter-spacing: 0.005em;
+}
+
+
+.projectCinema .wordfill + .wordfill {
+  margin-top: 1.6em;
+}
+
+
+.projectCinema .wordfill .w {
+  color: rgba(255, 255, 255, 0.14);
+
+  transition: color 0.3s linear;
+}
+
+
+.projectCinema .wordfill .w.on {
+  color: #fff;
+}
+
+
+/* =========================================================
+   CHAPTERS — sticky pin + media
+========================================================= */
+
+.projectCinema .chapter {
+  position: relative;
+
+  padding: 10vh 0 16vh;
+}
+
+
+.projectCinema .pin {
+  position: sticky;
+  top: 96px;
+
+  z-index: 3;
+
+  padding: 0 40px;
+
+  margin-bottom: 6vh;
+}
+
+
+.projectCinema .pin .mono {
+  color: var(--accent);
+}
+
+
+.projectCinema .media {
+  padding: 0 40px;
+
+  display: grid;
+
+  gap: 60px;
+}
+
+
+.projectCinema .full {
+  aspect-ratio: 16 / 8;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectCinema .pair {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+
+.projectCinema .pair .ph {
+  aspect-ratio: 4 / 5;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+/* single offset portrait block */
+
+.projectCinema .single {
+  max-width: 560px;
+
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+
+.projectCinema .single .ph {
+  aspect-ratio: 4 / 5;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
+.projectCinema .full img,
+.projectCinema .ph img {
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   G5 — IMAGE REVEAL (clip wipe + settle)
+========================================================= */
+
+.projectCinema .imgreveal {
+  clip-path: inset(100% 0 0 0);
+
+  transform: scale(1.06);
+
+  transition:
+    clip-path 1100ms var(--ease-out),
+    transform 1400ms var(--ease-out);
+}
+
+
+.projectCinema .imgreveal.is-in {
+  clip-path: inset(0 0 0 0);
+
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   G6 — CAPTION + READ MORE
+========================================================= */
+
+.projectCinema .cap {
+  margin-top: 14px;
+
+  max-width: 520px;
+}
+
+
+.projectCinema .cap p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #888;
+
+  line-height: 1.6;
+}
+
+
+.projectCinema .cap .more {
+  margin-top: 8px;
+
+  display: inline-block;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+
+  padding: 0 0 2px;
+
+  color: #888;
+
+  border-bottom: 1px solid #222;
+
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+
+.projectCinema .cap .more:hover {
+  border-color: var(--accent);
+
+  color: #ccc;
+}
+
+
+.projectCinema .cap .extra {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.5s var(--ease-out);
+}
+
+
+.projectCinema .cap .extra.open {
+  max-height: 220px;
+}
+
+
+.projectCinema .cap .extra p {
+  padding-top: 10px;
+
+  color: #aaa;
+}
+
+
+/* =========================================================
+   PULL QUOTE
+========================================================= */
+
+.projectCinema .quote {
+  padding: 26vh 40px;
+
+  text-align: center;
+}
+
+
+.projectCinema .quote h2 {
+  margin: 0;
+
+  font-size: clamp(28px, 5vw, 64px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+
+  line-height: 1.15;
+}
+
+
+/* =========================================================
+   CREDITS + RECOGNITION
+========================================================= */
+
+.projectCinema .credits {
+  padding: 14vh 40px;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px 60px;
+
+  border-top: 1px solid #222;
+}
+
+
+.projectCinema .credits .row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: baseline;
+
+  gap: 18px;
+
+  border-bottom: 1px solid #222;
+
+  padding: 12px 0;
+}
+
+
+.projectCinema .credits .row em {
+  font-style: normal;
+
+  color: #f2f2ef;
+
+  font-size: 12px;
+
+  text-align: right;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   G7 — PREV / NEXT
+========================================================= */
+
+.projectCinema .pn {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  border-top: 1px solid #222;
+}
+
+
+.projectCinema .pn a {
+  padding: 64px 40px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: background 0.4s ease;
+}
+
+
+.projectCinema .pn a:hover {
+  background: #121212;
+}
+
+
+.projectCinema .pn a h3 {
+  margin: 14px 0 0;
+
+  font-size: clamp(22px, 3vw, 36px);
+
+  font-weight: 500;
+
+  position: relative;
+
+  display: inline-block;
+}
+
+
+.projectCinema .pn a h3::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  height: 1px;
+  width: 0;
+
+  background: var(--accent);
+
+  transition: width 0.5s var(--ease-out);
+}
+
+
+.projectCinema .pn a:hover h3::after {
+  width: 100%;
+}
+
+
+.projectCinema .pn a:first-child {
+  border-right: 1px solid #222;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .projectCinema .heroTitle,
+  .projectCinema .pin,
+  .projectCinema .media,
+  .projectCinema .quote {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .projectCinema .heroTitle {
+    padding-bottom: 56px;
+  }
+
+  .projectCinema .cue {
+    right: 18px;
+  }
+
+  .projectCinema .meta {
+    grid-template-columns: 1fr 1fr;
+
+    padding: 24px 18px;
+  }
+
+  .projectCinema .meta::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .projectCinema .intro {
+    padding: 16vh 18px;
+  }
+
+  .projectCinema .full {
+    aspect-ratio: 16 / 10;
+  }
+
+  .projectCinema .pair {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCinema .credits {
+    grid-template-columns: 1fr;
+
+    padding: 10vh 18px;
+  }
+
+  .projectCinema .pn {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCinema .pn a {
+    padding: 44px 18px;
+  }
+
+  .projectCinema .pn a:first-child {
+    border-right: 0;
+
+    border-bottom: 1px solid #222;
+  }
+
+}
+
+
+/* =========================================================
    ACCESSIBILITY — reduced motion (§4.6)
 ========================================================= */
 
@@ -4812,6 +5544,10 @@ video {
   .workProjectLink:hover .workProjectImage,
   .workProjectLink:hover .workProjectImageAlt {
     transform: none;
+
+    animation: none;
+
+    filter: none;
   }
 
 
@@ -4824,6 +5560,43 @@ video {
     transition: none;
 
     opacity: 0 !important;
+  }
+
+
+  /* project template kit */
+
+  .projectCinema .lines .l i {
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectCinema .imgreveal {
+    clip-path: none;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectCinema .wordfill .w {
+    color: #fff;
+
+    transition: none;
+  }
+
+  .projectCinema .meta > div {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectCinema .meta::before {
+    transform: none;
+
+    transition: none;
   }
 
 }
