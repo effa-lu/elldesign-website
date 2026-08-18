@@ -6595,6 +6595,767 @@ video {
 
 
 /* =========================================================
+   PROJECT TEMPLATE KIT — B · DOSSIER
+   Sticky-rail editorial · WOW Gallery
+   project-page-template-spec.md
+========================================================= */
+
+.projectDossier {
+  --accent: #6fa8c9;
+
+  background: #050505;
+  color: #f2f2ef;
+
+  /* clip, not hidden — the rail relies on position:sticky,
+     which an overflow:hidden ancestor (a scroll container)
+     would disable */
+  overflow-x: clip;
+}
+
+
+/* G1 — selection Mode 2: project accent */
+
+.projectDossier ::selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+.projectDossier ::-moz-selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+
+/* mono micro-label */
+
+.projectDossier .mono {
+  font-family: var(--font-mono);
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: #888;
+}
+
+
+/* =========================================================
+   DOSSIER GRID — sticky rail + scrolling column
+========================================================= */
+
+.projectDossier .dossier {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  gap: 72px;
+
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 150px 40px 0;
+}
+
+
+.projectDossier .rail {
+  position: relative;
+}
+
+
+.projectDossier .rail .stick {
+  position: sticky;
+  top: 110px;
+}
+
+
+.projectDossier .railKicker {
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.7s var(--ease-out) 0.25s,
+    transform 0.7s var(--ease-out) 0.25s;
+}
+
+
+.projectDossier.entered .railKicker {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+.projectDossier .rail h1 {
+  margin: 14px 0 34px;
+
+  font-size: clamp(30px, 3.4vw, 46px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+
+  line-height: 1.08;
+}
+
+
+/* G3 — line-mask reveal */
+
+.projectDossier .lines .l {
+  display: block;
+
+  overflow: hidden;
+}
+
+
+.projectDossier .lines .l i {
+  display: inline-block;
+
+  font-style: normal;
+
+  transform: translateY(112%);
+
+  transition: transform 900ms var(--ease-out);
+}
+
+
+.projectDossier .lines.is-in .l:nth-child(1) i {
+  transform: none;
+
+  transition-delay: 0.05s;
+}
+
+
+.projectDossier .lines.is-in .l:nth-child(2) i {
+  transform: none;
+
+  transition-delay: 0.17s;
+}
+
+
+.projectDossier .lines.is-in .l:nth-child(3) i {
+  transform: none;
+
+  transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   G4 — META TABLE (rail)
+========================================================= */
+
+.projectDossier .mtable {
+  margin-bottom: 44px;
+}
+
+
+.projectDossier .mtable .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+
+  padding: 11px 0;
+
+  position: relative;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+
+.projectDossier .mtable .row::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+
+  background: #222;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.8s var(--ease-out);
+}
+
+
+.projectDossier .mtable.is-in .row {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+.projectDossier .mtable.is-in .row::after {
+  transform: scaleX(1);
+}
+
+
+.projectDossier .mtable.is-in .row:nth-child(2),
+.projectDossier .mtable.is-in .row:nth-child(2)::after {
+  transition-delay: 0.08s;
+}
+
+
+.projectDossier .mtable.is-in .row:nth-child(3),
+.projectDossier .mtable.is-in .row:nth-child(3)::after {
+  transition-delay: 0.16s;
+}
+
+
+.projectDossier .mtable.is-in .row:nth-child(4),
+.projectDossier .mtable.is-in .row:nth-child(4)::after {
+  transition-delay: 0.24s;
+}
+
+
+.projectDossier .mtable em {
+  font-style: normal;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #ddd;
+
+  text-align: right;
+
+  max-width: 60%;
+}
+
+
+/* =========================================================
+   SECTION INDEX — scroll-spy
+========================================================= */
+
+.projectDossier .index a {
+  display: flex;
+  gap: 14px;
+
+  padding: 9px 0;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #555;
+
+  transition:
+    color 0.4s,
+    letter-spacing 0.4s;
+}
+
+
+.projectDossier .index a:hover {
+  color: #999;
+}
+
+
+.projectDossier .index a.active {
+  color: var(--accent);
+
+  letter-spacing: 0.26em;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN — documents
+========================================================= */
+
+.projectDossier .col {
+  min-width: 0;
+
+  padding-bottom: 10vh;
+}
+
+
+.projectDossier .ph {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #0d1116;
+}
+
+
+.projectDossier .ph img {
+  object-fit: cover;
+}
+
+
+/* slot aspect ratios — cut to the actual documents */
+
+.projectDossier .heroPh {
+  aspect-ratio: 828 / 788;
+
+  max-width: 840px;
+}
+
+
+.projectDossier .wide {
+  aspect-ratio: 16 / 9.4;
+}
+
+
+.projectDossier .xwide {
+  aspect-ratio: 2000 / 808;
+}
+
+
+.projectDossier .sq {
+  aspect-ratio: 1 / 1;
+
+  max-width: 72%;
+}
+
+
+.projectDossier .block {
+  margin: 0 0 64px;
+}
+
+
+.projectDossier section.doc {
+  padding-top: 32px;
+
+  margin-bottom: 8vh;
+
+  scroll-margin-top: 96px;
+}
+
+
+.projectDossier section.doc > .mono {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color: var(--accent);
+}
+
+
+/* G5 — image reveal (clip wipe + settle) */
+
+.projectDossier .imgreveal {
+  clip-path: inset(100% 0 0 0);
+
+  transform: scale(1.06);
+
+  transition:
+    clip-path 1100ms var(--ease-out),
+    transform 1400ms var(--ease-out);
+}
+
+
+.projectDossier .imgreveal.is-in {
+  clip-path: inset(0 0 0 0);
+
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   G2 — WORD-FILL INTRO
+========================================================= */
+
+.projectDossier .intro {
+  padding: 8vh 0 6vh;
+
+  max-width: 640px;
+}
+
+
+.projectDossier .wordfill {
+  font-size: clamp(18px, 2.1vw, 26px);
+
+  font-weight: 500;
+
+  line-height: 1.55;
+}
+
+
+.projectDossier .wordfill + .wordfill {
+  margin-top: 1.2em;
+}
+
+
+.projectDossier .wordfill .w {
+  color: rgba(255, 255, 255, 0.15);
+
+  transition: color 0.3s linear;
+}
+
+
+.projectDossier .wordfill .w.on {
+  color: #fff;
+}
+
+
+/* =========================================================
+   G6 — CAPTION + READ MORE
+========================================================= */
+
+.projectDossier .cap {
+  margin-top: 14px;
+
+  max-width: 520px;
+}
+
+
+.projectDossier .cap p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: #8d8d8d;
+}
+
+
+.projectDossier .cap .more {
+  display: inline-block;
+
+  margin-top: 8px;
+  padding: 0 0 2px;
+
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #222;
+
+  cursor: pointer;
+
+  transition: border-color 0.3s;
+}
+
+
+.projectDossier .cap .more:hover {
+  border-color: var(--accent);
+
+  color: #ccc;
+}
+
+
+.projectDossier .cap .extra {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.5s var(--ease-out);
+}
+
+
+.projectDossier .cap .extra.open {
+  max-height: 240px;
+}
+
+
+.projectDossier .cap .extra p {
+  padding-top: 10px;
+
+  color: #aaa;
+}
+
+
+/* in-flow statement */
+
+.projectDossier .bodyState {
+  margin: 4vh 0 72px;
+
+  max-width: 620px;
+}
+
+
+.projectDossier .bodyState h3 {
+  margin: 0;
+
+  font-size: clamp(20px, 2.4vw, 30px);
+
+  font-weight: 500;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   TBD — reserved text slots (copy still being written)
+========================================================= */
+
+.projectDossier .tbd {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+
+  max-width: 520px;
+
+  margin-top: 16px;
+  padding: 14px 18px;
+
+  border: 1px dashed #26313a;
+}
+
+
+.projectDossier .tbd b {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: #7fa0b5;
+
+  white-space: nowrap;
+}
+
+
+.projectDossier .tbd span {
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #566068;
+}
+
+
+/* =========================================================
+   CREDITS
+========================================================= */
+
+.projectDossier .credits {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 8vh 40px 10vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 60px;
+
+  border-top: 1px solid #171717;
+}
+
+
+.projectDossier .credits .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid #171717;
+}
+
+
+.projectDossier .credits .row em {
+  font-style: normal;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #ddd;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   G7 — PREV / NEXT
+========================================================= */
+
+.projectDossier .pn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-top: 1px solid #171717;
+}
+
+
+.projectDossier .pn a {
+  display: block;
+
+  padding: 64px 40px;
+
+  transition: background 0.4s;
+}
+
+
+.projectDossier .pn a:hover {
+  background: #0b1014;
+}
+
+
+.projectDossier .pn a h3 {
+  display: inline-block;
+
+  position: relative;
+
+  margin: 14px 0 0;
+
+  font-size: clamp(22px, 3vw, 36px);
+
+  font-weight: 500;
+}
+
+
+.projectDossier .pn a h3::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  height: 1px;
+  width: 0;
+
+  background: var(--accent);
+
+  transition: width 0.5s var(--ease-out);
+}
+
+
+.projectDossier .pn a:hover h3::after {
+  width: 100%;
+}
+
+
+.projectDossier .pn a:first-child {
+  border-right: 1px solid #171717;
+}
+
+
+/* =========================================================
+   RESPONSIVE — Template B
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .projectDossier .dossier {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    padding: 120px 18px 0;
+  }
+
+  .projectDossier .rail .stick {
+    position: static;
+  }
+
+  .projectDossier .index {
+    display: flex;
+    gap: 22px;
+
+    overflow-x: auto;
+
+    position: sticky;
+    top: 58px;
+
+    z-index: 5;
+
+    margin: 6px -18px 0;
+    padding: 10px 18px;
+
+    background: rgba(5, 5, 5, 0.85);
+
+    backdrop-filter: blur(8px);
+  }
+
+  .projectDossier .index a {
+    white-space: nowrap;
+  }
+
+  .projectDossier .sq {
+    max-width: 100%;
+  }
+
+  .projectDossier .heroPh {
+    max-width: 100%;
+  }
+
+  .projectDossier .credits {
+    grid-template-columns: 1fr;
+
+    padding: 8vh 18px;
+  }
+
+  .projectDossier .pn {
+    grid-template-columns: 1fr;
+  }
+
+  .projectDossier .pn a {
+    padding: 44px 18px;
+  }
+
+  .projectDossier .pn a:first-child {
+    border-right: 0;
+
+    border-bottom: 1px solid #171717;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY — Template B reduced motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projectDossier .railKicker {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectDossier .lines .l i {
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectDossier .imgreveal {
+    clip-path: none;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectDossier .wordfill .w {
+    color: #fff;
+
+    transition: none;
+  }
+
+  .projectDossier .mtable .row {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+  .projectDossier .mtable .row::after {
+    transform: none;
+
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
    CONTACT FORM STATUS
 ========================================================= */
 
