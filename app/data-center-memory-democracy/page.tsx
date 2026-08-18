@@ -484,13 +484,13 @@ export default function DataDemocracyPage() {
       <div className="pn">
 
         <Link
-          href="/wow-gallery"
+          href="/woaw-gallery"
           data-transition
           data-cursor="view"
           data-cursor-label="VIEW →"
         >
           <span className="mono">← Prev Project</span>
-          <h3>WOW Gallery</h3>
+          <h3>WOAW Gallery</h3>
         </Link>
 
         <Link

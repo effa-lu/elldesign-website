@@ -505,14 +505,14 @@ export default function MementoPage() {
         </Link>
 
         <Link
-          href="/wow-gallery"
+          href="/woaw-gallery"
           data-transition
           data-cursor="view"
           data-cursor-label="VIEW →"
           style={{ textAlign: "right" }}
         >
           <span className="mono">Next Project →</span>
-          <h3>WOW Gallery</h3>
+          <h3>WOAW Gallery</h3>
         </Link>
 
       </div>

@@ -95,11 +95,11 @@ const projects = [
 
   {
     number: "07",
-    title: "WOW Gallery",
+    title: "WOAW Gallery",
     year: "2024",
     type: "Interior · Spatial Experience",
-    href: "/wow-gallery",
-    image: "/images/work_navigation/WOW Gallery.jpg",
+    href: "/woaw-gallery",
+    image: "/images/work_navigation/WOAW Gallery.jpg",
     altImage: null,
     speed: 0.97,
     className: "workProject",

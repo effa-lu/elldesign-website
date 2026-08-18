@@ -10,7 +10,7 @@ import {
 
 
 /* =========================================================
-   WOW GALLERY — Template B · DOSSIER
+   WOAW GALLERY WAN CHAI — Template B · DOSSIER
    project-page-template-spec.md
 ========================================================= */
 
@@ -88,18 +88,6 @@ function Cap({
 }
 
 
-/* reserved slot for copy still being written */
-
-function Tbd({ label }: { label: string }) {
-  return (
-    <div className="tbd">
-      <b>Text to come</b>
-      <span>{label}</span>
-    </div>
-  );
-}
-
-
 /* figure with G5 clip-wipe reveal */
 
 function Frame({
@@ -136,7 +124,7 @@ const SECTIONS = [
 ];
 
 
-export default function WowGalleryPage() {
+export default function WoawGalleryPage() {
   const root = useRef<HTMLElement>(null);
 
   const [entered, setEntered] = useState(false);
@@ -301,12 +289,12 @@ export default function WowGalleryPage() {
           <div className="stick">
 
             <span className="mono railKicker">
-              Project 06 · Interior · Spatial Experience
+              Project 07 · Adaptive Reuse · Gallery Interior
             </span>
 
             <Lines
               as="h1"
-              lines={["WOW", "Gallery"]}
+              lines={["WOAW", "Gallery"]}
             />
 
             {/* G4 — meta table */}
@@ -314,8 +302,13 @@ export default function WowGalleryPage() {
             <div className="mtable">
 
               <div className="row">
-                <span className="mono">Type</span>
-                <em>Interior · Spatial Experience</em>
+                <span className="mono">Client</span>
+                <em>WOAW Gallery</em>
+              </div>
+
+              <div className="row">
+                <span className="mono">Location</span>
+                <em>Wan Chai · Hong Kong</em>
               </div>
 
               <div className="row">
@@ -324,13 +317,13 @@ export default function WowGalleryPage() {
               </div>
 
               <div className="row">
-                <span className="mono">Programme</span>
-                <em>Exhibitions · Events</em>
+                <span className="mono">Materials</span>
+                <em>Raw concrete · Exposed steel</em>
               </div>
 
               <div className="row">
-                <span className="mono">Studio</span>
-                <em>ELLDdesign — LA · HK</em>
+                <span className="mono">Programme</span>
+                <em>Rotating art exhibitions</em>
               </div>
 
             </div>
@@ -365,18 +358,18 @@ export default function WowGalleryPage() {
 
           <Frame
             className="heroPh"
-            src="/images/wow-gallery/01-facade-night.jpg"
-            alt="WOW Gallery at night — the folding steel awning lifted above the glazed storefront, upper window glowing, exhibition titles printed on the glass"
+            src="/images/woaw-gallery/01-facade-night.jpg"
+            alt="WOAW Gallery at night — the folding steel awning lifted above the glazed storefront, upper window glowing, exhibition titles printed on the glass"
             sizes="(max-width: 900px) 100vw, 840px"
             priority
           />
 
-          {/* G2 — word-fill intro · copy pending */}
+          {/* G2 — word-fill intro */}
 
           <section className="intro">
-            <WordFill text="WOW Gallery — introduction copy to come." />
+            <WordFill text="This adaptive-reuse project transforms an existing urban building into a contemporary art gallery for WOAW Gallery." />
 
-            <Tbd label="Intro — 2–3 short sentences. The word-fill scroll effect already runs on this slot; replace the line above." />
+            <WordFill text="Rooted in minimalist and industrial aesthetics, the space balances preserved building fabric with flexible insertions to accommodate rotating art exhibitions." />
           </section>
 
 
@@ -391,37 +384,41 @@ export default function WowGalleryPage() {
             <div className="block">
               <Frame
                 className="wide"
-                src="/images/wow-gallery/02-exhibition-paintings.jpg"
-                alt="Ground floor in use — large paintings hung on the perforated steel wall beside the brass stair rail"
+                src="/images/woaw-gallery/02-exhibition-paintings.jpg"
+                alt="Ground floor in use — large paintings hung on the perforated steel wall beside the exposed stair rail"
                 sizes="(max-width: 900px) 100vw, 62vw"
               />
 
-              <Tbd label="Caption for the perforated wall / hanging system." />
+              <Cap
+                text="Raw concrete serves as the primary material backdrop."
+                more="Existing concrete surfaces retain their natural texture and traces of age, establishing a neutral, subdued base that keeps focus on artworks rather than decorative finishes."
+              />
             </div>
 
             <div className="block">
               <Frame
                 className="wide"
-                src="/images/wow-gallery/03-exhibition-text-wall.jpg"
+                src="/images/woaw-gallery/03-exhibition-text-wall.jpg"
                 alt="Exhibition text wall by the entrance, a single small canvas beside the polycarbonate under-stair enclosure"
                 sizes="(max-width: 900px) 100vw, 62vw"
               />
 
-              <Tbd label="Caption for the text wall and under-stair." />
+              <Cap
+                text="Instead of rigid permanent walls, movable and multi-functional furniture shapes the floor."
+                more="Freestanding seats, modular display units and sliding steel partitions can be rearranged or fully removed — the gallery shifts between open large-scale installation space and smaller enclosed viewing zones."
+              />
             </div>
 
           </section>
 
 
-          {/* in-flow statement · copy pending */}
+          {/* in-flow statement */}
 
           <div className="bodyState">
             <Lines
               as="h3"
-              lines={["Statement to come —", "one line about the space."]}
+              lines={["The structure stays unchanged.", "Everything else reconfigures."]}
             />
-
-            <Tbd label="Replace with the section statement (line-mask reveal applies)." />
           </div>
 
 
@@ -436,23 +433,29 @@ export default function WowGalleryPage() {
             <div className="block">
               <Frame
                 className="xwide"
-                src="/images/wow-gallery/04-long-section.jpg"
-                alt="Long section — the two-storey gallery cut open: reading loft above, exhibition floor and under-stair alcove below, the orange stair rail running through"
+                src="/images/woaw-gallery/04-long-section.jpg"
+                alt="Long section — the two-storey gallery cut open: reading loft above, exhibition floor and under-stair alcove below, the steel stair rail running through"
                 sizes="(max-width: 900px) 100vw, 62vw"
               />
 
-              <Tbd label="Caption for the long section." />
+              <Cap
+                text="Metal elements are applied as modular, reversible components against the concrete shell."
+                more="Exposed steel is used for stair railings, sliding partition frames and hardware systems — sharp industrial contrast that never overwhelms the restrained tone."
+              />
             </div>
 
             <div className="block">
               <Frame
                 className="sq"
-                src="/images/wow-gallery/05-interior-perspective.jpg"
-                alt="Interior perspective — mezzanine with silver curtain and orange rail above the storefront glazing"
+                src="/images/woaw-gallery/05-interior-perspective.jpg"
+                alt="Interior perspective — mezzanine with silver curtain and steel rail above the storefront glazing"
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
 
-              <Tbd label="Caption for the perspective view." />
+              <Cap
+                text="Sliding steel partitions redraw the plan as curatorial demands change."
+                more="The design follows a clear static-and-variable logic: the original concrete structure stays untouched while functions, boundaries and atmospheres are adjusted through detachable metal hardware."
+              />
             </div>
 
           </section>
@@ -469,23 +472,29 @@ export default function WowGalleryPage() {
             <div className="block">
               <Frame
                 className="sq"
-                src="/images/wow-gallery/06-opening-crowd.jpg"
+                src="/images/woaw-gallery/06-opening-crowd.jpg"
                 alt="Opening night — the crowd filling the lane outside the lifted awning and glowing storefront"
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
 
-              <Tbd label="Caption for the opening-night crowd." />
+              <Cap
+                text="Open large-scale installation space, or smaller enclosed viewing zones — the room answers each show."
+                more="Movable furniture and sliding partitions respond flexibly to varying curatorial demands, exhibition by exhibition."
+              />
             </div>
 
             <div className="block">
               <Frame
                 className="wide"
-                src="/images/wow-gallery/07-opening-participation.jpg"
+                src="/images/woaw-gallery/07-opening-participation.jpg"
                 alt="Visitors colouring the letterform poster on the gallery wall during an opening"
                 sizes="(max-width: 900px) 100vw, 62vw"
               />
 
-              <Tbd label="Caption for the participation moment." />
+              <Cap
+                text="Atmospheres are adjusted, not rebuilt."
+                more="Detachable hardware and reconfigurable furniture let each exhibition reshape the gallery while the building fabric stays exactly as found."
+              />
             </div>
 
           </section>
@@ -496,19 +505,29 @@ export default function WowGalleryPage() {
 
 
       {/* ===================================================
-          CREDITS · copy pending
+          CREDITS
       ==================================================== */}
 
       <section className="credits">
 
         <div className="row">
-          <span className="mono">Studio</span>
-          <em>ELLDdesign — LA · HK</em>
+          <span className="mono">Spatial Design</span>
+          <em>Leo</em>
         </div>
 
         <div className="row">
-          <span className="mono">Credits</span>
-          <em>To come</em>
+          <span className="mono">Production Design</span>
+          <em>Effa</em>
+        </div>
+
+        <div className="row">
+          <span className="mono">Design Engineering</span>
+          <em>Lila</em>
+        </div>
+
+        <div className="row">
+          <span className="mono">Studio</span>
+          <em>ELLDdesign — LA · HK</em>
         </div>
 
       </section>
