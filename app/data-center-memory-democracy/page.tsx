@@ -420,13 +420,6 @@ export default function DataDemocracyPage() {
         <div className="media">
 
           <div>
-            <Frame
-              className="full"
-              src="/images/data-democracy/07-system-drawings.png"
-              alt="Annotated system drawings of the retrieval mechanisms"
-              sizes="100vw"
-            />
-
             <Cap
               text="Retrieval reconnects people with accumulated memory, revealing the relationship between bodies, machines, and information."
               more="The museum zone displays the workflow of digitizing collections from other institutions, alongside the history and development of digital data — open-source access for education and research."
