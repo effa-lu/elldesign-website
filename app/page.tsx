@@ -31,7 +31,7 @@ export default function Home() {
 
           <Reveal>
             <h1 className="heroBrand">
-              ELLDdesign
+              ELLdesign
             </h1>
           </Reveal>
 
@@ -209,7 +209,7 @@ export default function Home() {
           >
             <div className="studioLabel">
               <span>THE STUDIO</span>
-              <span>ELLDdesign</span>
+              <span>ELLdesign</span>
             </div>
           </Reveal>
 
@@ -227,7 +227,7 @@ export default function Home() {
 
             <Reveal delay={260}>
               <p className="studioDescription">
-                ELLDdesign is an interdisciplinary
+                ELLdesign is an interdisciplinary
                 spatial design practice working
                 across stage, set, architecture,
                 and experimental environments.
@@ -293,7 +293,7 @@ export default function Home() {
           >
             <img
               src="/images/home/closing-earth.jpg"
-              alt="ELLDdesign closing"
+              alt="ELLdesign closing"
             />
           </MediaReveal>
 

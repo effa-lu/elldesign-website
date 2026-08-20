@@ -83,7 +83,7 @@ export default function Navbar() {
       {/* LEFT */}
       <Link href="/" className="headerBrand">
         <span className="headerBrandMain">
-          ELLDdesign
+          ELLdesign
         </span>
 
         <span className="headerBrandSub">

@@ -700,7 +700,7 @@ export default function CultureTransitPage() {
 
         <div className="row">
           <span className="mono">Studio</span>
-          <em>ELLDdesign — LA · HK</em>
+          <em>ELLdesign — LA · HK</em>
         </div>
 
       </section>

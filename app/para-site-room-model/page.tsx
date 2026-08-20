@@ -639,7 +639,7 @@ export default function ParasiteRoomPage() {
 
         <div className="row">
           <span className="mono">Studio</span>
-          <em>ELLDdesign — LA · HK</em>
+          <em>ELLdesign — LA · HK</em>
         </div>
 
         <div className="row">
