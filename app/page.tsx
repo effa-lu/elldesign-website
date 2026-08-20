@@ -44,6 +44,18 @@ export default function Home() {
             </h2>
           </Reveal>
 
+
+          <Reveal delay={240}>
+            <p className="heroAudience">
+              <span className="heroAudienceRoles">
+                FOR FILMMAKERS&nbsp;&nbsp;·&nbsp;&nbsp;MUSICIANS&nbsp;&nbsp;·&nbsp;&nbsp;THEATRE-MAKERS&nbsp;&nbsp;·&nbsp;&nbsp;CURATORS&nbsp;&nbsp;·&nbsp;&nbsp;BRANDS
+              </span>
+              <span className="heroAudienceLead">
+                — ANYONE WITH A STORY THAT NEEDS A SPACE.
+              </span>
+            </p>
+          </Reveal>
+
         </div>
 
 

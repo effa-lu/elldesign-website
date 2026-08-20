@@ -945,6 +945,40 @@ video {
 
 /* Stage · Set · World-Building */
 
+/* =========================================================
+   HERO — AUDIENCE LINES
+   who the studio is for, under the headline
+========================================================= */
+
+.heroAudience {
+  margin: 36px 0 0;
+  padding: 0;
+
+  font-family: var(--font-mono);
+
+  font-size: 12px;
+
+  line-height: 2.1;
+
+  letter-spacing: 0.16em;
+}
+
+
+.heroAudience span {
+  display: block;
+}
+
+
+.heroAudienceRoles {
+  color: #8c8c8c;
+}
+
+
+.heroAudienceLead {
+  color: #d6d6d2;
+}
+
+
 .heroMetaReveal {
   position: absolute;
 
@@ -3266,6 +3300,16 @@ video {
 
   .heroTitle {
     font-size: clamp(66px, 8.8vw, 112px);
+  }
+
+  .heroAudience {
+    margin-top: 26px;
+
+    font-size: 9.5px;
+
+    line-height: 2;
+
+    letter-spacing: 0.12em;
   }
 
   .mediumLeftWrap,
