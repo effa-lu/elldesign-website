@@ -299,11 +299,11 @@ export default function MementoPage() {
 
       <section className="intro">
 
-        <WordFill text="Memento reimagines the neglected border between Hong Kong and Shenzhen as a spatial archive of memory, time, and encounter." />
+        <WordFill text="Memento explores the spatial complexity of boundaries — memory, time, and human encounter — within a neglected hundred-meter strip between Shenzhen and Hong Kong." />
 
-        <WordFill text="Situated between Lin Ma Hang and Chang Ling, the project transforms a thin strip once defined by roads, wasteland, and layers of barbed wire into an inhabitable boundary." />
+        <WordFill text="It began as a personal experience of the pandemic: with every crossing closed, people from both cities came to meet across four layers of barbed wire." />
 
-        <WordFill text="Rather than erasing the boundary, Memento asks how architecture can inhabit the space in between — turning division into connection and memory into spatial experience." />
+        <WordFill text="Rather than erasing the boundary, the project reconstructs it as both boundary and link — a space where separation, shared memory, nature, and dual identities coexist." />
 
       </section>
 
@@ -329,8 +329,8 @@ export default function MementoPage() {
             />
 
             <Cap
-              text="A thin strip defined by roads, wasteland, and layers of barbed wire."
-              more="The border is read not as a line but as a territory with thickness — decades of separation held in fences, patrol roads, and the leftover ground between two cities."
+              text="A neglected strip, a hundred meters wide — roads, wasteland, and four layers of fencing between two cities."
+              more="The border is read not as a line but as a territory with thickness. The four layers of wire that once held people apart are reinterpreted as a spatial memento of a particular historical moment — the project's name, and its brief."
             />
           </div>
 
@@ -378,8 +378,8 @@ export default function MementoPage() {
             />
 
             <Cap
-              text="Through fragmentation, layering, and spatial transition, the wall shifts from a device of separation into a medium that records human encounters."
-              more="Cut plans and elevations are layered like strata; each fragment carries a room, a passage, a sightline across the line. The wall stops dividing and starts remembering."
+              text="Existing plans are deconstructed — overlapped, shifted, rotated — and translated from drawing into three-dimensional space."
+              more="The same operations are then applied to the wall itself. No longer a simple element of separation, it becomes a device that carries movement, events, perception, and memory."
             />
           </div>
 
@@ -405,7 +405,7 @@ export default function MementoPage() {
 
       <section className="quote">
         <Lines
-          lines={["Division becomes", "connection."]}
+          lines={["Must a wall", "remain a barrier?"]}
         />
       </section>
 
@@ -431,27 +431,32 @@ export default function MementoPage() {
             />
 
             <Cap
-              text="The wall as a reel of memory: encounters on both sides recorded frame by frame."
-              more="Sequences of approach, glimpse, and meeting are choreographed along the strip — architecture as a storyboard of crossings between two cities."
+              text="The linear barrier unfolds into a fragmented, diachronic sequence — encounters recorded frame by frame."
+              more="Layers of walls, paths, openings, and interstitial spaces expand the narrow territory into a landscape of encounters, where different moments and memories overlap as visitors move through it."
             />
           </div>
 
-          <div className="pair">
+          <div>
 
-            <Frame
-              className="ph"
-              src="/images/memento/08-encounter-walls.jpg"
-              alt="A visitor walks among fractured concrete plates, a green glimpse opening between them"
-              sizes="(max-width: 760px) 100vw, 50vw"
-            />
+            <div className="pair">
 
-            <Frame
-              className="ph"
-              src="/images/memento/09-stair-passage.jpg"
-              alt="A figure climbs the winding stair inside the wall toward a lit opening"
-              sizes="(max-width: 760px) 100vw, 50vw"
-            />
+              <Frame
+                className="ph"
+                src="/images/memento/08-encounter-walls.jpg"
+                alt="A visitor walks among fractured concrete plates, a green glimpse opening between them"
+                sizes="(max-width: 760px) 100vw, 50vw"
+              />
 
+              <Frame
+                className="ph"
+                src="/images/memento/09-stair-passage.jpg"
+                alt="A figure climbs the winding stair inside the wall toward a lit opening"
+                sizes="(max-width: 760px) 100vw, 50vw"
+              />
+
+            </div>
+
+            <Cap text="Between the two cities, the landscape keeps growing and the Lin Ma Hang Stream keeps flowing — human boundaries set against continuities that ignore them." />
           </div>
 
         </div>
