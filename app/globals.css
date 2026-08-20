@@ -6269,6 +6269,60 @@ video {
 }
 
 
+/* hero background video — darkened so the type stays the subject */
+
+.projectSequence .heroMedia {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition: opacity 1.4s ease 0.15s;
+}
+
+
+.projectSequence.entered .heroMedia {
+  opacity: 1;
+}
+
+
+.projectSequence .heroMedia video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(0.45) saturate(0.85);
+}
+
+
+.projectSequence .heroShade {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 0.92) 0%,
+    rgba(5, 5, 5, 0.28) 42%,
+    rgba(5, 5, 5, 0.5) 100%
+  );
+}
+
+
+.projectSequence .hero > :not(.heroMedia):not(.heroShade):not(.cue) {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.projectSequence .hero .cue {
+  z-index: 2;
+}
+
+
 .projectSequence .heroRule {
   height: 1px;
   width: 0;
@@ -6760,7 +6814,7 @@ video {
 ========================================================= */
 
 .projectSequence .hstrip {
-  height: 320vh;
+  height: 280vh;
 
   position: relative;
 }
@@ -6797,7 +6851,7 @@ video {
 
 
 .projectSequence .frame {
-  flex: 0 0 46vw;
+  flex: 0 0 56vw;
 
   margin: 0;
 }
@@ -6845,6 +6899,45 @@ video {
   width: 0;
 
   background: var(--accent);
+}
+
+
+/* =========================================================
+   SCORE — the annotated system drawing, full width
+========================================================= */
+
+.projectSequence .score {
+  padding: 14vh 40px 6vh;
+}
+
+
+.projectSequence .score > .mono {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color: var(--accent);
+}
+
+
+.projectSequence .score .art {
+  position: relative;
+
+  aspect-ratio: 1665 / 939;
+
+  overflow: hidden;
+
+  background: #0d0d0c;
+}
+
+
+.projectSequence .score .art img {
+  object-fit: cover;
+}
+
+
+.projectSequence .score .cap {
+  margin-left: 0;
 }
 
 
@@ -7043,6 +7136,10 @@ video {
     right: -6vw;
   }
 
+  .projectSequence .score {
+    padding: 10vh 18px 4vh;
+  }
+
   .projectSequence .hstrip {
     height: auto;
 
@@ -7112,6 +7209,10 @@ video {
     transition: none;
 
     width: 180px;
+  }
+
+  .projectSequence .heroMedia {
+    display: none;
   }
 
   .projectSequence .heroKicker,

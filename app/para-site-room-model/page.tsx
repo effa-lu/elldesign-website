@@ -114,7 +114,8 @@ function Frame({
 }
 
 
-/* the four frames of the sequence strip */
+/* the three video stills of the sequence strip
+   (the annotated score now closes the page full-width) */
 
 const SEQUENCE_FRAMES = [
   {
@@ -135,12 +136,6 @@ const SEQUENCE_FRAMES = [
     tag: "Frame 03",
     text: "P02 · the scissor arm swings out",
   },
-  {
-    src: "/images/para-site/08-system-axonometric.jpg",
-    alt: "System axonometric — parasites P01 to P06 annotated across three exploded drawing columns",
-    tag: "Frame 04",
-    text: "P01–P06 · the full score, annotated",
-  },
 ];
 
 
@@ -149,6 +144,7 @@ export default function ParasiteRoomPage() {
   const strip = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const prog = useRef<HTMLElement>(null);
+  const video = useRef<HTMLVideoElement>(null);
 
   const [entered, setEntered] = useState(false);
 
@@ -156,6 +152,38 @@ export default function ParasiteRoomPage() {
     const raf = requestAnimationFrame(() => setEntered(true));
 
     return () => cancelAnimationFrame(raf);
+  }, []);
+
+  /* React can drop the `muted` attribute from SSR markup,
+     which makes browsers refuse the autoplay — set it and
+     nudge play() from script as well */
+
+  useEffect(() => {
+    const v = video.current;
+
+    if (!v) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
+
+    v.muted = true;
+
+    const nudge = () => {
+      if (document.visibilityState !== "visible") return;
+
+      if (!v.paused) return;
+
+      const attempt = v.play();
+
+      if (attempt) attempt.catch(() => {});
+    };
+
+    nudge();
+
+    document.addEventListener("visibilitychange", nudge);
+
+    return () =>
+      document.removeEventListener("visibilitychange", nudge);
   }, []);
 
   useEffect(() => {
@@ -307,10 +335,24 @@ export default function ParasiteRoomPage() {
     >
 
       {/* =====================================================
-          HERO — typographic, no image
+          HERO — the machine running behind the title
       ====================================================== */}
 
       <section className="hero">
+
+        <div className="heroMedia" aria-hidden="true">
+          <video
+            ref={video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            src="/videos/para-site-cut.mp4"
+          />
+        </div>
+
+        <div className="heroShade" aria-hidden="true" />
 
         <div className="heroRule" />
 
@@ -530,6 +572,29 @@ export default function ParasiteRoomPage() {
           </div>
 
         </div>
+
+      </section>
+
+
+      {/* =====================================================
+          SCORE — the annotated system drawing
+      ====================================================== */}
+
+      <section className="score">
+
+        <span className="mono">P01 – P06 · The full score</span>
+
+        <Frame
+          className="art"
+          src="/images/para-site/08-system-axonometric.jpg"
+          alt="System axonometric — parasites P01 to P06 annotated across three exploded drawing columns, movements and pressure lines marked in yellow"
+          sizes="100vw"
+        />
+
+        <Cap
+          text="Every parasite on one sheet — axes, rotors, pistons, and the movements they feed, annotated in the margin."
+          more="Wind rotors (an H-rotor and a Savonius turbine) drive the rotational axes; syringes and pistons carry the pressure lines; the drafting table tilts on hydraulic and pneumatic movement. Read top to bottom, the score maps each attachment P01–P06 to the reconfiguration it performs on the host."
+        />
 
       </section>
 
