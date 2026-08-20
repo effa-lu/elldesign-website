@@ -385,7 +385,7 @@ export default function MementoPage() {
 
           <div className="single">
             <Frame
-              className="ph"
+              className="ph phSquare"
               src="/images/memento/06-wall-axonometric.png"
               alt="Wireframe axonometric — the wall opened as an inhabitable section"
               sizes="(max-width: 760px) 100vw, 560px"

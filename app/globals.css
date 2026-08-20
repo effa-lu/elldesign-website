@@ -5219,6 +5219,13 @@ video {
 }
 
 
+/* square variant — full-frame artwork, no crop */
+
+.projectCinema .single .ph.phSquare {
+  aspect-ratio: 1 / 1;
+}
+
+
 /* landscape variant — for paired renders / drawings */
 
 .projectCinema .pair .ph.phWide {
