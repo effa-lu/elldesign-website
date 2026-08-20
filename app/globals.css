@@ -5277,6 +5277,28 @@ video {
 }
 
 
+/* wide single — dense analytical boards read near full column */
+
+.projectCinema .singleWide {
+  max-width: 940px;
+
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+
+.projectCinema .singleWide .ph {
+  aspect-ratio: 4 / 3;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #101010;
+}
+
+
 .projectCinema .full img,
 .projectCinema .ph img {
   object-fit: cover;
