@@ -380,9 +380,9 @@ export default function WithinTheExistingPage() {
 
           <section className="intro">
 
-            <WordFill text="Within the Existing reimagines Edinburgh's historic Tron Kirk through adaptive reuse, treating the existing architecture as an active layer of spatial narrative." />
+            <WordFill text="Within the Existing reimagines Edinburgh's seventeenth-century Tron Kirk as a contemporary art library — new cultural infrastructure inhabiting a historic building without erasing the spatial and material memory embedded within it." />
 
-            <WordFill text="New interventions are inserted within the old structure rather than replacing it, creating a dialogue between past and present through material, circulation, light, and spatial sequence." />
+            <WordFill text="A building grows within the building: instead of replacing the monumental interior, an independent structure of shelves, bridges, and platforms lets old and new coexist." />
 
           </section>
 
@@ -404,8 +404,8 @@ export default function WithinTheExistingPage() {
               />
 
               <Cap
-                text="The kirk is read first — arcade, window heads, and roof structure surveyed as the datum every new move answers to."
-                more="The project transforms the historic Gothic church into a contemporary art library, preserving its original character while adaptive-reuse strategies let the building hold cultural memory and contemporary artistic expression at once."
+                text="The kirk is read first — arcade, window heads, and the monumental void surveyed as the datum every new move answers to."
+                more="Rather than subdividing the church into conventional floors, the proposal keeps the volume whole. The permanence and weight of the masonry are preserved as the room the library lives in — the void itself is the inheritance."
               />
             </div>
 
@@ -417,7 +417,7 @@ export default function WithinTheExistingPage() {
           <div className="bodyState">
             <Lines
               as="h3"
-              lines={["New interventions stay legible —", "the existing stays present."]}
+              lines={["Not an act of replacement —", "an act of coexistence."]}
             />
           </div>
 
@@ -439,8 +439,8 @@ export default function WithinTheExistingPage() {
               />
 
               <Cap
-                text="Exposed steel crisscrosses overhead; custom shelving hangs from it on cables rather than standing on the stone floor."
-                more="The metal structures add strength and industrial character while staying reversible — dark minimalist frames contrast with the warm stone walls and carry the library's collection of art books and periodicals."
+                text="An independent system — bookshelves, bridges, stairs, and reading platforms — stands inside the volume, touching the stone lightly."
+                more="The intervention deliberately contrasts the weight of the existing masonry with a lighter contemporary structure. Old and new stay visually distinct: one carries the building's accumulated history, the other its new occupation and public life."
               />
             </div>
 
@@ -475,8 +475,8 @@ export default function WithinTheExistingPage() {
               />
 
               <Cap
-                text="Spatial reference — suspended stacks in green steel and glass, light falling through every tier."
-                more="The vertical-library register the insertion pursues: shelving as inhabitable structure, floors reading as shelves, daylight reaching the ground through layered translucency."
+                text="Inspired by the spatial openness of Biblioteca Vasconcelos — books not as contents inside architecture, but as elements that construct space itself."
+                more="The library becomes a vertical landscape of knowledge: visitors move between books, artworks, archives, and elevated reading rooms while continuously perceiving the historic shell around them."
               />
             </div>
 
