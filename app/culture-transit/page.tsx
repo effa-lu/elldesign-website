@@ -94,7 +94,7 @@ const SECTIONS = [
     num: "01",
     title: "World-Building",
     flip: false,
-    src: "/images/culture-transit/pano-01-worldbuilding.png",
+    src: "/images/culture-transit/pano-01-worldbuilding.jpg",
     alt: "World-building panorama — landscapes, interiors, musicians, and cultural fragments sharing one visual language along the journey",
     body: [
       "The journey becomes a continuous world in which landscapes, interiors, objects, characters, and cultural fragments coexist within a single visual language.",
@@ -105,7 +105,7 @@ const SECTIONS = [
     num: "02",
     title: "Scenic System",
     flip: true,
-    src: "/images/culture-transit/pano-02-scenic.png",
+    src: "/images/culture-transit/pano-02-scenic.jpg",
     alt: "Scenic system panorama — modular objects, creatures, and balloons entering and recombining across the mountain landscape",
     body: [
       "Cultural elements are translated into modular objects, programs, and spatial components that can enter, disappear, recombine, and transform throughout the journey.",
@@ -116,7 +116,7 @@ const SECTIONS = [
     num: "03",
     title: "Sequence & Transformation",
     flip: false,
-    src: "/images/culture-transit/pano-03-timetable.png",
+    src: "/images/culture-transit/pano-03-timetable.jpg",
     alt: "Journey timetable panorama — the train elevation with coded cabins mapping how objects and programs transfer between locations",
     body: [
       "A detailed journey timetable maps how objects, programs, and cultural references move between locations and transform through exchange.",
@@ -127,7 +127,7 @@ const SECTIONS = [
     num: "04",
     title: "A World at Human Scale",
     flip: true,
-    src: "/images/culture-transit/pano-04-humanscale.png",
+    src: "/images/culture-transit/pano-04-humanscale.jpg",
     alt: "Human-scale panorama — passengers, corridors, and the Harmless Dojo seen from inside the moving train",
     body: [
       "Rather than presenting the world from a single fixed viewpoint, the panorama unfolds through movement.",
@@ -655,7 +655,7 @@ export default function CultureTransitPage() {
               <div className="track">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/culture-transit/pano-02-scenic.png"
+                  src="/images/culture-transit/pano-02-scenic.jpg"
                   alt="Sky layer of the full panorama — the landscape world above the line"
                   draggable={false}
                   loading="lazy"
@@ -665,7 +665,7 @@ export default function CultureTransitPage() {
             </div>
 
             <Pano
-              src="/images/culture-transit/pano-03-timetable.png"
+              src="/images/culture-transit/pano-03-timetable.jpg"
               alt="The full train elevation — ride the whole journey before the credits"
               drift={8}
             />
