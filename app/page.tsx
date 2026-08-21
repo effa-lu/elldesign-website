@@ -31,7 +31,7 @@ export default function Home() {
 
           <Reveal>
             <h1 className="heroBrand">
-              Exl-Design
+              Exl Studio
             </h1>
           </Reveal>
 
@@ -209,7 +209,7 @@ export default function Home() {
           >
             <div className="studioLabel">
               <span>THE STUDIO</span>
-              <span>Exl-Design</span>
+              <span>Exl Studio</span>
             </div>
           </Reveal>
 
@@ -227,7 +227,7 @@ export default function Home() {
 
             <Reveal delay={260}>
               <p className="studioDescription">
-                Exl-Design is an interdisciplinary
+                Exl Studio is an interdisciplinary
                 spatial design practice working
                 across stage, set, architecture,
                 and experimental environments.
@@ -293,7 +293,7 @@ export default function Home() {
           >
             <img
               src="/images/home/closing-earth.jpg"
-              alt="Exl-Design closing"
+              alt="Exl Studio closing"
             />
           </MediaReveal>
 

@@ -83,7 +83,7 @@ export default function Navbar() {
       {/* LEFT */}
       <Link href="/" className="headerBrand">
         <span className="headerBrandMain">
-          Exl-Design
+          Exl Studio
         </span>
 
         <span className="headerBrandSub">

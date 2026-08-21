@@ -7,7 +7,7 @@ import CursorDot from "@/components/CursorDot";
 import PageFade from "@/components/PageFade";
 
 export const metadata: Metadata = {
-  title: "Exl-Design Studio",
+  title: "Exl Studio",
   description:
     "Independent spatial design practice — Los Angeles and Hong Kong.",
 };

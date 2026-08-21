@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="footerInner">
 
         <div className="footerBrand">
-          <h2>Exl-Design Studio</h2>
+          <h2>Exl Studio</h2>
 
           <p>
             Set · Stage · Spatial Design
@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         <div className="footerBottom">
-          <span>© 2026 Exl-Design Studio</span>
+          <span>© 2026 Exl Studio</span>
 
           <span>SPACE × STORY × SYSTEM</span>
 

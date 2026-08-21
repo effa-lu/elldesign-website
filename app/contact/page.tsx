@@ -209,7 +209,7 @@ export default function ContactPage() {
             <div className="contactBottom">
 
               <p>
-                Exl-Design@studio
+                Exl@studio
               </p>
 
               <p>

@@ -154,7 +154,7 @@ export default function StudioPage() {
 
           <Reveal delay={120}>
             <p className="studioHeroDescription">
-              Exl-Design is an independent spatial design studio based between{" "}
+              Exl Studio is an independent spatial design studio based between{" "}
               <span className="accent nowrap">
                 Los Angeles and Hong Kong
               </span>

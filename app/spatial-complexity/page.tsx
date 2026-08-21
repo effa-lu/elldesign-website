@@ -487,7 +487,7 @@ export default function MementoPage() {
 
         <div className="row">
           <span className="mono">Studio</span>
-          <em>Exl-Design — LA · HK</em>
+          <em>Exl Studio — LA · HK</em>
         </div>
 
       </section>
