@@ -14,10 +14,10 @@ export async function POST(request: Request) {
     }
 
     const inquiry = await resend.emails.send({
-      from: "Exl Studio Website <onboarding@resend.dev>",
+      from: "Exl Studio Website <hello@exlstudio.com>",
 
     
-      to: ["info@elldesign.studio"],
+      to: ["hello@exlstudio.com"],
 
       replyTo: email,
 

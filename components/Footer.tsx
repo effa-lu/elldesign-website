@@ -14,12 +14,12 @@ export default function Footer() {
         </div>
 
         <div className="footerContact">
-          <a href="mailto:elldesign@studio.com">
-            elldesign@studio.com
+          <a href="https://exlstudio.com" target="_blank" rel="noreferrer">
+            exlstudio.com
           </a>
 
-          <a href="mailto:info@elldesign.studio">
-            info@elldesign.studio
+          <a href="mailto:hello@exlstudio.com">
+            hello@exlstudio.com
           </a>
 
           <a href="tel:+13107571745">

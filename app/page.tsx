@@ -209,7 +209,7 @@ export default function Home() {
           >
             <div className="studioLabel">
               <span>THE STUDIO</span>
-              <span>Exl Studio</span>
+                <span>Exl Studio</span>
             </div>
           </Reveal>
 

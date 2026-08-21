@@ -10,7 +10,7 @@ import MediaReveal from "../../components/MediaReveal";
 
 /*
   A24-style motion system — see
-  a24-effects-spec-elldesign-work.md
+  a24-effects-spec-exl-studio-work.md
 
   altImage (optional): alternate still / process
   shot revealed on hover (E2). Add one asset per
