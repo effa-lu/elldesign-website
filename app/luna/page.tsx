@@ -529,7 +529,7 @@ export default function LunarFrontierPage() {
 
         <div className="row">
           <span className="mono">Studio</span>
-          <em>ELLDdesign — LA · HK</em>
+          <em>Exl-Design — LA · HK</em>
         </div>
 
       </section>

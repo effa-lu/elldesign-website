@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     }
 
     const inquiry = await resend.emails.send({
-      from: "ELL Design Studio Website <onboarding@resend.dev>",
+      from: "Exl-Design Studio Website <onboarding@resend.dev>",
 
     
       to: ["info@elldesign.studio"],
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
           line-height: 1.6;
           color: #111;
         ">
-          <h2>New ELL Design Studio Inquiry</h2>
+          <h2>New Exl-Design Studio Inquiry</h2>
 
           <p>
             <strong>Name</strong><br />

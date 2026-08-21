@@ -1,4 +1,4 @@
-# ELLDdesign Next.js
+# Exl-Design Next.js
 
 This version recreates the Framer site structure and responsive design system without final project images.
 

@@ -154,7 +154,7 @@ export default function StudioPage() {
 
           <Reveal delay={120}>
             <p className="studioHeroDescription">
-              ELLdesign is an independent spatial design studio based between{" "}
+              Exl-Design is an independent spatial design studio based between{" "}
               <span className="accent nowrap">
                 Los Angeles and Hong Kong
               </span>
